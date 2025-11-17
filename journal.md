@@ -12,7 +12,7 @@
 
 ### Session 1
 **Date :** 17.11.2025
-**Durée :** 1 h  
+**Durée :** 2 h  
 **Objectif :**  
 - Mettre le projet en place avec tout les documents nécessaire et planifier
 
@@ -24,12 +24,11 @@
 -  Mise en place de l'environnement de travail
 
 **Problèmes rencontrés / Solutions :**  
--  
--  
+-  Aucun problèmes
 
 **Prochaines étapes :**  
--  
--  
+-  Utiliser Go pour la première fois
+-  Mettre le projet en place 
 
 ---
 
