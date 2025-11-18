@@ -53,8 +53,9 @@
 -  Le serveur se lancait mais s'arrêtais aussitôt. J'ai changé le driver sqlite pour un autre driver purement Go pour éviter d'avoir des problème ave le C.
 
 **Prochaines étapes :**  
--  
--  
+- Tester les routes 
+-  Créer une légère interface afin de tester les fonctionnalités (Peut-être faire une maquette)
+-  Continuer la documentation 
 
 ---
 
