@@ -34,7 +34,7 @@
 
 ### Session 2
 **Date :** 18.11.2025 
-**Durée :** X h  
+**Durée :** 5 h  
 **Objectif :**  
 - Création de la base de donnée
 
