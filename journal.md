@@ -33,14 +33,15 @@
 ---
 
 ### Session 2
-**Date :** YYYY-MM-DD  
+**Date :** 18.11.2025 
 **Durée :** X h  
 **Objectif :**  
-- Exemple : Implémenter GET `/habits`
+- Création de la base de donnée
 
 **Tâches réalisées :**  
--  
--  
+-  Création du MCD
+-  Installation de MySQL Workbench
+-  Création du MLD
 
 **Problèmes rencontrés / Solutions :**  
 -  
