@@ -14,7 +14,7 @@ func main() {
 	database, err := db.OpenDatabase("GoHabit.db")
 
 	if err != nil {
-		log.Fatalf("Impossible d'ouvrir la bse de données : %v", err)
+		log.Fatalf("Impossible d'ouvrir la base de données : %v", err)
 	}
 	defer database.Close()
 
