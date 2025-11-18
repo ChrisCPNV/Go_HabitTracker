@@ -43,10 +43,13 @@
 -  Installation de MySQL Workbench
 -  Création du MLD
 -  Création du script de création des tables
+-  Implémentation de la base de données avec SQLite en Go
+-  Implémentation des routes pour les tâches et les tags
+-  Serveur fonctionnel avec CRUD
+-  Amélioration du README
 
 **Problèmes rencontrés / Solutions :**  
--  
--  
+-  Le serveur se lancait mais s'arrêtais aussitôt. J'ai changé le driver sqlite pour un autre driver purement Go pour éviter d'avoir des problème ave le C.
 
 **Prochaines étapes :**  
 -  
