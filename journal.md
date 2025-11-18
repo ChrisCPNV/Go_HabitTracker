@@ -42,6 +42,7 @@
 -  Création du MCD
 -  Installation de MySQL Workbench
 -  Création du MLD
+-  Création du script de création des tables
 
 **Problèmes rencontrés / Solutions :**  
 -  
