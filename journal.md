@@ -60,13 +60,14 @@
 ---
 
 ### Session 3
-**Date :** YYYY-MM-DD  
+**Date :** 21.11.2025  
 **Durée :** X h  
 **Objectif :**  
-- Exemple : Implémenter POST `/habits` et validation
+- Finir les routes
+- Commencer l'interface
 
 **Tâches réalisées :**  
--  
+-  Tâches liées avec les tags
 -  
 
 **Problèmes rencontrés / Solutions :**  
