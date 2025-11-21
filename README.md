@@ -90,6 +90,12 @@ go mod download
    go build -o GoHabitTracker.exe ./cmd/server
    ```
 
+   If server is still running you won't be able to build the application.
+
+   ```powershell
+   Stop-Process -Name server -Force -ErrorAction SilentlyContinue; Stop-Process -Name GoHabitTracker -Force -ErrorAction SilentlyContinue
+   ```
+
 4. **Run the application**
 
    ```powershell
@@ -130,6 +136,14 @@ The server will start on `http://localhost:8080`
 
 ## **Usage Examples**
 
+### **Create a Tag**
+
+```bash
+curl -X POST http://localhost:8080/api/tags \
+  -H "Content-Type: application/json" \
+  -d '{"name": "Learning"}'
+```
+
 ### **Create a Task**
 
 ```bash
@@ -138,6 +152,8 @@ curl -X POST http://localhost:8080/api/tasks \
   -d '{
     "name": "Learn Go",
     "description": "Complete Go fundamentals course",
+    "tag_id": 1,
+    "due_date": "23.07.2025",
     "completed": false
   }'
 ```
@@ -146,14 +162,6 @@ curl -X POST http://localhost:8080/api/tasks \
 
 ```bash
 curl http://localhost:8080/api/tasks
-```
-
-### **Create a Tag**
-
-```bash
-curl -X POST http://localhost:8080/api/tags \
-  -H "Content-Type: application/json" \
-  -d '{"name": "Learning"}'
 ```
 
 ### **Get All Tags**
