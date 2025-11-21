@@ -12,10 +12,10 @@ import (
 type Task struct {
 	ID          int64   `json:"id"`
 	Name        string  `json:"name"`
-	Description string  `json:"description"`
+	Description *string `json:"description"`
 	TagID       *int64  `json:"tag_id,omitempty"`
 	TagName     *string `json:"tag_name,omitempty"`
-	DueDate     *string `json:"due_date,omitempty"`
+	DueDate     string  `json:"due_date,omitempty"`
 	Completed   bool    `json:"completed"`
 	CreatedAt   string  `json:"created_at"`
 }
