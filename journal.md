@@ -61,22 +61,22 @@
 
 ### Session 3
 **Date :** 21.11.2025  
-**Durée :** X h  
+**Durée :** 2.5 h  
 **Objectif :**  
 - Finir les routes
 - Commencer l'interface
 
 **Tâches réalisées :**  
 -  Tâches liées avec les tags
--  
+-  Interface HTML créée
+-  Pge HTML liée avec JS
 
 **Problèmes rencontrés / Solutions :**  
--  
--  
+-  Problème pour build l'éxecutable Go. Aucune solution trouvée
 
 **Prochaines étapes :**  
--  
--  
+-  Régler le problème avec l'éxecutable
+-  Améliorer l'interface
 
 ---
 
