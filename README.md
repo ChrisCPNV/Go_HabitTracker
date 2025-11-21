@@ -32,15 +32,16 @@ Go_HabitTracker/
 │   └── server/
 │       └── main.go           # Application entry point
 ├── internal/
-│   ├── api/                  # API handlers (expandable)
 │   ├── db/
 │   │   ├── database.go       # Database logic & CRUD operations
 │   │   └── schema.sql        # Database schema
-│   ├── models/               # Data models
 │   ├── routes/
 │   │   └── router.go         # Route definitions & handlers
-│   ├── services/             # Business logic services
-│   └── frontend/             # Frontend resources (future)
+│   ├── services/             
+│   └── frontend/             
+│       ├── app.js            # JS for the html page
+│       ├── home.html         # The html for the page that the user will see
+│       └── light.css         # Css file for the light style of the page
 ├── go.mod                    # Go module definition
 ├── go.sum                    # Go module checksums
 ├── README.md                 # This file

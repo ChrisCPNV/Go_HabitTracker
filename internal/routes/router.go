@@ -30,8 +30,14 @@ func NewRouter(database *sql.DB) http.Handler {
 	mux.HandleFunc("POST /api/tags", r.createTag)
 	mux.HandleFunc("DELETE /api/tags/{id}", r.deleteTag)
 
-	// Serve index page
-	mux.HandleFunc("GET /", r.serveIndex)
+	// Serve static files (CSS, JS, HTML)
+	fileServer := http.FileServer(http.Dir("./internal/frontend"))
+	mux.Handle("GET /static/", http.StripPrefix("/static/", fileServer))
+
+	// Serve home.html
+	mux.HandleFunc("GET /", func(w http.ResponseWriter, req *http.Request) {
+		http.ServeFile(w, req, "internal/frontend/home.html")
+	})
 
 	return mux
 }
@@ -178,12 +184,4 @@ func (r *Router) deleteTag(w http.ResponseWriter, req *http.Request) {
 
 	w.WriteHeader(http.StatusOK)
 	json.NewEncoder(w).Encode(map[string]string{"message": "Tag supprimé avec succès"})
-}
-
-// serveIndex serves the index HTML page
-func (r *Router) serveIndex(w http.ResponseWriter, req *http.Request) {
-	w.Header().Set("Content-Type", "text/html")
-	w.WriteHeader(http.StatusOK)
-	w.Write([]byte(
-		"<h1>Go Habit Tracker</h1><p>Bienvenue dans l'application de suivi des habitudes!</p>"))
 }
