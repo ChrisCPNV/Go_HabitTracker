@@ -14,6 +14,7 @@ type Task struct {
 	Name        string  `json:"name"`
 	Description string  `json:"description"`
 	TagID       *int64  `json:"tag_id,omitempty"`
+	TagName     *string `json:"tag_name,omitempty"`
 	DueDate     *string `json:"due_date,omitempty"`
 	Completed   bool    `json:"completed"`
 	CreatedAt   string  `json:"created_at"`
@@ -58,7 +59,11 @@ func createTables(db *sql.DB) error {
 // ===== TASK FUNCTIONS =====
 
 func GetAllTasks(db *sql.DB) ([]Task, error) {
-	rows, err := db.Query("SELECT id, name, description, tag_id, due_date, completed, created_at FROM tasks")
+	rows, err := db.Query(`
+	SELECT t.id, t.name, t.description, t.tag_id, tg.name as tag_name, t.due_date, t.completed, t.created_at
+	FROM tasks t
+	LEFT JOIN tags tg ON t.tag_id = tg.id
+	`)
 	if err != nil {
 		return nil, err
 	}
@@ -67,7 +72,7 @@ func GetAllTasks(db *sql.DB) ([]Task, error) {
 	var tasks []Task
 	for rows.Next() {
 		var task Task
-		if err := rows.Scan(&task.ID, &task.Name, &task.Description, &task.TagID, &task.DueDate, &task.Completed, &task.CreatedAt); err != nil {
+		if err := rows.Scan(&task.ID, &task.Name, &task.Description, &task.TagID, &task.TagName, &task.DueDate, &task.Completed, &task.CreatedAt); err != nil {
 			return nil, err
 		}
 		tasks = append(tasks, task)
@@ -78,9 +83,14 @@ func GetAllTasks(db *sql.DB) ([]Task, error) {
 
 func GetTaskByID(db *sql.DB, id int64) (Task, error) {
 	var task Task
-	row := db.QueryRow("SELECT id, name, description, tag_id, due_date, completed, created_at FROM tasks WHERE id = ?", id)
+	row := db.QueryRow(`
+	SELECT t.id, t.name, t.description, t.tag_id, tg.name as tag_name, t.due_date, t.completed, t.created_at
+	FROM tasks t
+	LEFT JOIN tags tg ON t.tag_id = tg.id
+	WHERE t.id = ?
+	`, id)
 
-	err := row.Scan(&task.ID, &task.Name, &task.Description, &task.TagID, &task.DueDate, &task.Completed, &task.CreatedAt)
+	err := row.Scan(&task.ID, &task.Name, &task.Description, &task.TagID, &task.TagName, &task.DueDate, &task.Completed, &task.CreatedAt)
 	if err != nil {
 		return Task{}, err
 	}
