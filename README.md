@@ -4,11 +4,12 @@ A simple and efficient habit tracking application built with Go, featuring a RES
 
 ## **Contributors**
 
-- **Chris Brandt** (chris.brandt@eduvaud.ch)
+- **Chris Brandt** (<chris.brandt@eduvaud.ch>)
 
 ## **Overview**
 
 Go_HabitTracker is a backend REST API application that allows users to:
+
 - Create, read, update, and delete tasks (habits)
 - Organize tasks with tags/categories
 - Mark tasks as complete
@@ -25,7 +26,7 @@ The application provides a clean REST API interface for task management and is b
 
 ## **Project Structure**
 
-```
+```text
 Go_HabitTracker/
 ├── cmd/
 │   └── server/
@@ -70,22 +71,26 @@ go mod download
 ### **Installation Steps**
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/ChrisCPNV/Go_HabitTracker.git
    cd Go_HabitTracker
    ```
 
 2. **Download dependencies**
+
    ```bash
    go mod download
    ```
 
 3. **Build the application**
+
    ```bash
    go build -o GoHabitTracker.exe ./cmd/server
    ```
 
 4. **Run the application**
+
    ```powershell
    # Option 1: Run in background (Windows)
    start-process -FilePath .\GoHabitTracker.exe -NoNewWindow
@@ -159,6 +164,7 @@ curl http://localhost:8080/api/tags
 ## **Database Schema**
 
 ### **Tasks Table**
+
 ```sql
 CREATE TABLE tasks (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -174,6 +180,7 @@ CREATE TABLE tasks (
 ```
 
 ### **Tags Table**
+
 ```sql
 CREATE TABLE tags (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -239,7 +246,7 @@ GOOS=darwin GOARCH=amd64 go build -o GoHabitTracker ./cmd/server
 ## **Contacts**
 
 - **Developer:** Chris Brandt
-- **Email:** chris.brandt@eduvaud.ch
+- **Email:** <chris.brandt@eduvaud.ch>
 
 ## **License**
 
