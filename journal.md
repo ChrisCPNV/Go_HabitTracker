@@ -24,12 +24,15 @@
 -  L'utilisateur peut rajouter des tâches depuis l'application
 -  Barre de navigation séparée de la page principale pour la réutiliser
 -  Documentation améliorée
+-  L'utilisateur peut marquer une tâche comme étant complétée
+-  Le bouton pour afficher les tâches déjà complétée fonctionne
 
 **Problèmes rencontrés / Solutions :**  
--  
+-  Auncun problèmes
 
 **Prochaines étapes :**  
--  
+-  L'utilisateur peut créer des tags
+-  Améliorer l'interface
 
 ---
 
