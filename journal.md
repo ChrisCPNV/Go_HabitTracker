@@ -23,6 +23,7 @@
 -  La date de rendu de la tâche s'affiche correctement
 -  L'utilisateur peut rajouter des tâches depuis l'application
 -  Barre de navigation séparée de la page principale pour la réutiliser
+-  Documentation améliorée
 
 **Problèmes rencontrés / Solutions :**  
 -  
