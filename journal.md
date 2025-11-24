@@ -10,25 +10,43 @@
 
 ## Journal de travail
 
-### Session 1
-**Date :** 17.11.2025
-**Durée :** 2 h  
+
+### Session 4
+**Date :** 24.11.2025  
+**Durée :** 2.5 h  
 **Objectif :**  
-- Mettre le projet en place avec tout les documents nécessaire et planifier
+- Fixer le problème de la dernière session
+- Améliorer l'interface
 
 **Tâches réalisées :**  
--  Création du journal de travail
--  Création de la documentation principale
--  Mise en place d'un plan de travail sur GitHub
--  Installation de Git Bash
--  Mise en place de l'environnement de travail
+-  Problème de construction de l'exécutable régler en clonant le projet ailleurs
 
 **Problèmes rencontrés / Solutions :**  
--  Aucun problèmes
+-  
 
 **Prochaines étapes :**  
--  Utiliser Go pour la première fois
--  Mettre le projet en place 
+-  
+
+---
+
+### Session 3
+**Date :** 21.11.2025  
+**Durée :** 2.5 h  
+**Objectif :**  
+- Finir les routes
+- Commencer l'interface
+
+**Tâches réalisées :**  
+-  Tâches liées avec les tags
+-  Interface HTML créée
+-  Pge HTML liée avec JS
+
+**Problèmes rencontrés / Solutions :**  
+-  Problème pour build l'éxecutable Go. Aucune solution trouvée
+
+**Prochaines étapes :**  
+-  Régler le problème avec l'éxecutable
+-  Améliorer l'interface
 
 ---
 
@@ -59,30 +77,25 @@
 
 ---
 
-### Session 3
-**Date :** 21.11.2025  
-**Durée :** 2.5 h  
+### Session 1
+**Date :** 17.11.2025
+**Durée :** 2 h  
 **Objectif :**  
-- Finir les routes
-- Commencer l'interface
+- Mettre le projet en place avec tout les documents nécessaire et planifier
 
 **Tâches réalisées :**  
--  Tâches liées avec les tags
--  Interface HTML créée
--  Pge HTML liée avec JS
+-  Création du journal de travail
+-  Création de la documentation principale
+-  Mise en place d'un plan de travail sur GitHub
+-  Installation de Git Bash
+-  Mise en place de l'environnement de travail
 
 **Problèmes rencontrés / Solutions :**  
--  Problème pour build l'éxecutable Go. Aucune solution trouvée
+-  Aucun problèmes
 
 **Prochaines étapes :**  
--  Régler le problème avec l'éxecutable
--  Améliorer l'interface
-
----
-
-*…répéter pour chaque session jusqu’à la fin du projet…*
-
----
+-  Utiliser Go pour la première fois
+-  Mettre le projet en place 
 
 ## Bilan final
 **Durée totale effectuée :** XX h  
