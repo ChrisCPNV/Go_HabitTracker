@@ -21,6 +21,8 @@
 **Tâches réalisées :**  
 -  Problème de construction de l'exécutable régler en clonant le projet ailleurs
 -  La date de rendu de la tâche s'affiche correctement
+-  L'utilisateur peut rajouter des tâches depuis l'application
+-  Barre de navigation séparée de la page principale pour la réutiliser
 
 **Problèmes rencontrés / Solutions :**  
 -  
