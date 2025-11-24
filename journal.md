@@ -20,6 +20,7 @@
 
 **Tâches réalisées :**  
 -  Problème de construction de l'exécutable régler en clonant le projet ailleurs
+-  La date de rendu de la tâche s'affiche correctement
 
 **Problèmes rencontrés / Solutions :**  
 -  
