@@ -18,10 +18,10 @@
 - Améliorer l'interface
 
 **Tâches réalisées :**  
--  Problème de construction de l'exécutable régler en clonant le projet ailleurs
+-  L'utilisateur peut gérer les tags, les créer et les supprimer
 
 **Problèmes rencontrés / Solutions :**  
--  Aucun problèmes
+-  Je n'arrive pas à reproduire une mise en page similaire à celle des tâches
 
 **Prochaines étapes :**  
 -  L'utilisateur peut créer des tags
