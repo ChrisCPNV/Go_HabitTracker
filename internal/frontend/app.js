@@ -169,7 +169,6 @@ function setupButtons() {
         const response = await fetch("/api/tasks");
         const tasks = await response.json();
         renderTasks(tasks, currentShowCompleted);
-        // Optional: update button text
         document.getElementById("viewCompletedBtn").textContent = 
             currentShowCompleted ? "Hide Completed" : "View Completed";
     });
