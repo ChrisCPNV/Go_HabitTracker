@@ -12,9 +12,9 @@
 
 ### Session 5
 **Date :** 25.11.2025  
-**Durée :** 2.5 h  
+**Durée :** 3.75 h  
 **Objectif :**  
-- Faire en sortes que l'utilisateurs puisse créer des tags
+- Faire en sortes que l'utilisateur puisse créer des tags
 - Améliorer l'interface
 
 **Tâches réalisées :**  
@@ -22,13 +22,16 @@
 -  Les 3 pages sont créées et liées (tasks, tags, home)
 -  Il y a une vue sous forme de calendrier
 -  Mise à jour du README
+-  Mise à jour de la documentation
 
 **Problèmes rencontrés / Solutions :**  
 -  Je n'arrive pas à reproduire une mise en page similaire à celle des tâches. (le navigateur gardait l'ancien style en cache, il a fallu faire ctrl+shift+r)
 
 **Prochaines étapes :**  
--  L'utilisateur peut créer des tags
--  Améliorer l'interface
+-  Trier les tags par couleurs
+-  (Amélioration mineures de l'interface)
+-  Amélioration du système de completion des tâches
+-  Pouvoir voir si des tâches n'ont pas été complétées avant leurs dates limite
 
 ---
 
