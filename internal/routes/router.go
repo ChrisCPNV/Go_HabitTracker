@@ -45,6 +45,10 @@ func NewRouter(database *sql.DB) http.Handler {
 		http.ServeFile(w, req, "internal/frontend/tags.html")
 	}).Methods("GET")
 
+	m.HandleFunc("/tasks", func(w http.ResponseWriter, req *http.Request) {
+		http.ServeFile(w, req, "internal/frontend/tasks.html")
+	}).Methods("GET")
+
 	return m
 }
 
