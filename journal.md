@@ -10,6 +10,24 @@
 
 ## Journal de travail
 
+### Session 5
+**Date :** 25.11.2025  
+**Durée :** 2.5 h  
+**Objectif :**  
+- Faire en sortes que l'utilisateurs puisse créer des tags
+- Améliorer l'interface
+
+**Tâches réalisées :**  
+-  Problème de construction de l'exécutable régler en clonant le projet ailleurs
+
+**Problèmes rencontrés / Solutions :**  
+-  Aucun problèmes
+
+**Prochaines étapes :**  
+-  L'utilisateur peut créer des tags
+-  Améliorer l'interface
+
+---
 
 ### Session 4
 **Date :** 24.11.2025  
@@ -28,7 +46,7 @@
 -  Le bouton pour afficher les tâches déjà complétée fonctionne
 
 **Problèmes rencontrés / Solutions :**  
--  Auncun problèmes
+-  Aucun problèmes
 
 **Prochaines étapes :**  
 -  L'utilisateur peut créer des tags
