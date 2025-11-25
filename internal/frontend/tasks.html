@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Go Habit Tracker</title>
+    <link rel="stylesheet" href="/static/light.css" />
+    <script defer src="/static/app.js"></script>
+    <script defer src="/static/navbar.js"></script>
+</head>
+<body>
+    <div id="headerContainer"></div>
+    <main>
+        <h2>Your Habits</h2>
+
+        <ul id="taskList"></ul>
+
+        <div class="actions">
+            <button id="addHabitBtn">Add Habit</button>
+            <button id="viewCompletedBtn">View Completed</button>
+        </div>
+        
+        <!-- Add Habit Modal -->
+        <div id="addHabitModal" class="modal">
+            <div class="modal-content">
+                <span id="closeModal" class="close">&times;</span>
+                <h2>Add New Habit</h2>
+                <form id="addHabitForm">
+                    <label>
+                        Name:<br>
+                        <input type="text" name="name" required />
+                    </label><br><br>
+                    <label>
+                        Description:<br>
+                        <textarea name="description"></textarea>
+                    </label><br><br>
+                    <label>
+                        Tag:<br>
+                        <select name="tag_id" id="tagSelect">
+                            <option value="">--Select a Tag--</option>
+                        </select>
+                    </label><br><br>
+
+                    <label>
+                        Due Date:<br>
+                        <input type="date" name="due_date" />
+                    </label><br><br>
+                    <button type="submit">Add Habit</button>
+                </form>
+            </div>
+        </div>
+
+    </main>
+</body>
+</html>
