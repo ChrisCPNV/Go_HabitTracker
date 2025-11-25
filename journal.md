@@ -19,9 +19,11 @@
 
 **Tâches réalisées :**  
 -  L'utilisateur peut gérer les tags, les créer et les supprimer
+-  Les 3 pages sont créées et liées (tasks, tags, home)
+-  Il y a une vue sous forme de calendrier
 
 **Problèmes rencontrés / Solutions :**  
--  Je n'arrive pas à reproduire une mise en page similaire à celle des tâches
+-  Je n'arrive pas à reproduire une mise en page similaire à celle des tâches. (le navigateur gardait l'ancien style en cache, il a fallu faire ctrl+shift+r)
 
 **Prochaines étapes :**  
 -  L'utilisateur peut créer des tags
