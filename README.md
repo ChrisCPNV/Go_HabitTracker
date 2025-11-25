@@ -8,20 +8,23 @@ A simple and efficient habit tracking application built with Go, featuring a RES
 
 ## **Overview**
 
-Go_HabitTracker is a backend REST API application that allows users to:
+Go_HabitTracker is a full-stack habit tracker that allows users to:
 
 - Create, read, update, and delete tasks (habits)
 - Organize tasks with tags/categories
 - Mark tasks as complete
+- Track tasks visually with a calendar
+- View tasks for a selected day alongside the calendar
 - Manage habit data persistently with SQLite
 
-The application provides a clean REST API interface for task management and is built entirely in Go for performance and simplicity.
+The application provides a REST API for backend management and a responsive frontend built with HTML, CSS, and JavaScript.
 
 ## **Technologies Used**
 
 - **Language:** Go 1.21+
 - **Database:** SQLite (via `modernc.org/sqlite`)
 - **Architecture:** REST API with HTTP handlers
+- **Frontend:** HTML, CSS, JavaScript
 - **Database Driver:** Pure Go SQLite implementation (no CGO required)
 
 ## **Project Structure**
@@ -39,13 +42,18 @@ Go_HabitTracker/
 │   │   └── router.go         # Route definitions & handlers
 │   ├── services/             
 │   └── frontend/             
-│       ├── app.js            # JS for the html page
-│       ├── home.html         # The html for the page that the user will see
-│       └── light.css         # Css file for the light style of the page
-├── go.mod                    # Go module definition
-├── go.sum                    # Go module checksums
-├── README.md                 # This file
-└── journal.md                # Development journal
+│       ├── app.js            
+│       ├── home.html         # Homepage with calendar view
+│       ├── tasks.html        
+│       ├── tags.html         
+│       ├── light.css         # Light theme CSS
+│       ├── calendar.css      # Calendar-specific CSS
+│       └── navbar.js         
+├── go.mod                    
+├── go.sum                    
+├── README.md                 
+└── journal.md                
+
 ```
 
 ## **How to Setup?**
@@ -78,13 +86,7 @@ go mod download
    cd Go_HabitTracker
    ```
 
-2. **Download dependencies**
-
-   ```bash
-   go mod download
-   ```
-
-3. **Build the application**
+2. **Build the application**
 
    ```bash
    go build -o GoHabitTracker.exe ./cmd/server
@@ -104,7 +106,7 @@ go mod download
    Stop-Process -Name server -Force -ErrorAction SilentlyContinue; Stop-Process -Name GoHabitTracker -Force -ErrorAction SilentlyContinue
    ```
 
-4. **Run the application**
+3. **Run the application**
 
    ```powershell
    # Option 1: Run in background (Windows)
@@ -127,6 +129,7 @@ The server will start on `http://localhost:8080`
 | GET | `/api/tasks/{id}` | Get task by ID |
 | PUT | `/api/tasks/{id}` | Update a task |
 | DELETE | `/api/tasks/{id}` | Delete a task |
+| POST | `/api/tasks/{id}/complete` | Toggle completion |
 
 ### **Tags**
 
@@ -141,6 +144,26 @@ The server will start on `http://localhost:8080`
 | Method | Endpoint | Description |
 |--------|----------|-------------|
 | GET | `/` | Homepage |
+| GET | `/tasks` | Tasks management page |
+| GET | `/tags` | Tags management page |
+
+## **Frontend Features**
+
+### **Calendar View**
+
+- Visual monthly calendar displays all day
+- Tasks wth a due date ar highlighted on the calendar
+- Navigation arrows to move between months
+- Clicking a day shows all tasks for that day in a sidebar
+- Task names and optional description are displayed
+
+### **Task Sidebar**
+
+- Shows tasks for the selected day
+- Each task displays :
+  - Name (bold)
+  - Description (if present)+
+- Updates dynamically when the user selects a different day
 
 ## **Usage Examples**
 
@@ -161,21 +184,9 @@ curl -X POST http://localhost:8080/api/tasks \
     "name": "Learn Go",
     "description": "Complete Go fundamentals course",
     "tag_id": 1,
-    "due_date": "23.07.2025",
+    "due_date": "2025-07-23",
     "completed": false
   }'
-```
-
-### **Get All Tasks**
-
-```bash
-curl http://localhost:8080/api/tasks
-```
-
-### **Get All Tags**
-
-```bash
-curl http://localhost:8080/api/tags
 ```
 
 ## **Database Schema**
@@ -205,29 +216,10 @@ CREATE TABLE tags (
 );
 ```
 
-## **Configuration & Customization**
+## **Configuration**
 
-### **Database Location**
-
-The database file is created as `GoHabit.db` in the working directory. To change the location, modify the path in `cmd/server/main.go`:
-
-```go
-database, err := db.OpenDatabase("path/to/your/database.db")
-```
-
-### **Server Port**
-
-To change the server port from 8080, edit `cmd/server/main.go`:
-
-```go
-http.ListenAndServe(":YOUR_PORT", router)
-```
-
-### **Adding New Endpoints**
-
-1. Add handler functions in `internal/routes/router.go`
-2. Register the route in the `NewRouter()` function
-3. Add corresponding database functions in `internal/db/database.go` if needed
+- Database file location: Default `Gohabit.db` in the working directory. Modify `cmd/server/main.go` to change.
+- Server port: Default `8080`. Modify `cmd/server/main.go` to change.
 
 ## **Development**
 
@@ -252,7 +244,7 @@ GOOS=darwin GOARCH=amd64 go build -o GoHabitTracker ./cmd/server
 
 ## **Future Enhancements**
 
-- [ ] Frontend UI (HTML/CSS/JavaScript)
+- [x] Frontend UI (HTML/CSS/JavaScript)
 - [ ] User authentication
 - [ ] Habit statistics and reports
 - [ ] Recurring tasks/habits
