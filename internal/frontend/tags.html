@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tags Go Habit Tracker</title>
+
+    <link rel="stylesheet" href="/static/light.css" />
+    <script defer src="/static/navbar.js"></script>
+    <script defer src="/static/tags.js"></script>
+</head>
+<body>
+    <div id="headerContainer"></div>
+
+    <main>
+        <h2>Your Tags</h2>
+
+        <ul id="tagList"></ul>
+
+        <div class="actions">
+            <button id="addTagBtn">Add Tag</button>
+        </div>
+
+        <!-- Add Tag Modal -->
+        <div id="addTagModal" class="modal">
+            <div class="modal-content">
+                <span id="closeTagModal" class="close">&times;</span>
+                <h2>Create New Tag</h2>
+
+                <form id="addTagForm">
+                    <label>
+                        Name:<br>
+                        <input type="text" name="name" required />
+                    </label>
+                    <br><br>
+
+                    <button type="submit">Create Tag</button>
+                </form>
+            </div>
+        </div>
+
+    </main>
+</body>
+</html>

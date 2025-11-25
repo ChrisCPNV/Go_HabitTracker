@@ -135,6 +135,49 @@ button:hover {
 .close:hover {
     color: #000;
 }
+#tagList {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.tag-item {
+    border: 1px solid #ddd;
+    padding: 12px 15px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    background: #f9f9f9;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    transition: background 0.2s, box-shadow 0.2s;
+}
+
+.tag-item:hover {
+    background: #f0f6ff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.tag-name {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.delete-tag-btn {
+    background: #e25c5c;
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.delete-tag-btn:hover {
+    background: #c74f4f;
+}
 
 /* Responsive tweak for smaller screens */
 @media (max-width: 600px) {
