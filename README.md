@@ -90,6 +90,14 @@ go mod download
    go build -o GoHabitTracker.exe ./cmd/server
    ```
 
+   In case the system cannot find the path specified:
+
+   ```powershell
+   set GOTMPDIR=C:\Users\<user>\Dev\Temp
+   ```
+
+   This may need to be adapted to the path you want.
+
    If server is still running you won't be able to build the application.
 
    ```powershell
