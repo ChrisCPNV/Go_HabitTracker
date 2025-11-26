@@ -93,6 +93,13 @@ function renderTasks(tasks, showCompleted = false) {
                 const due = document.createElement("span");
                 due.textContent = `Due: ${dueDate.toLocaleDateString()}`;
                 due.classList.add("task-due");
+
+                // Highlit the task if overdue
+                const now = new Date();
+                if (dueDate < now && !task.completed) {
+                    due.classList.add("overdue");
+                }
+
                 item.appendChild(due);
             }
         }
