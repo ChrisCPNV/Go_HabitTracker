@@ -1,6 +1,7 @@
 CREATE TABLE IF NOT EXISTS tags (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT NOT NULL UNIQUE
+    name TEXT NOT NULL UNIQUE,
+    color TEXT NOT NULL DEFAULT '#888888'
 );
 
 CREATE TABLE IF NOT EXISTS tasks (
@@ -14,6 +15,5 @@ CREATE TABLE IF NOT EXISTS tasks (
 
     FOREIGN KEY (tag_id) REFERENCES tags(id),
 
-    -- Combination of name and due_date must be unique
     UNIQUE(name, due_date)
 );

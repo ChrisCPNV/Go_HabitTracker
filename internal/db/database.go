@@ -15,6 +15,7 @@ type Task struct {
 	Description *string `json:"description"`
 	TagID       *int64  `json:"tag_id,omitempty"`
 	TagName     *string `json:"tag_name,omitempty"`
+	TagColor    *string `json:"tag_color,omitempty"` // NEW
 	DueDate     string  `json:"due_date,omitempty"`
 	Completed   bool    `json:"completed"`
 	CreatedAt   string  `json:"created_at"`
@@ -22,8 +23,9 @@ type Task struct {
 
 // Tag represents a task tag/category
 type Tag struct {
-	ID   int64  `json:"id"`
-	Name string `json:"name"`
+	ID    int64  `json:"id"`
+	Name  string `json:"name"`
+	Color string `json:"color"` // NEW
 }
 
 // OpenDatabase opens or creates the SQLite database
@@ -60,7 +62,8 @@ func createTables(db *sql.DB) error {
 
 func GetAllTasks(db *sql.DB) ([]Task, error) {
 	rows, err := db.Query(`
-	SELECT t.id, t.name, t.description, t.tag_id, tg.name as tag_name, t.due_date, t.completed, t.created_at
+	SELECT t.id, t.name, t.description, t.tag_id, tg.name as tag_name, tg.color as tag_color,
+	       t.due_date, t.completed, t.created_at
 	FROM tasks t
 	LEFT JOIN tags tg ON t.tag_id = tg.id
 	`)
@@ -72,7 +75,11 @@ func GetAllTasks(db *sql.DB) ([]Task, error) {
 	var tasks []Task
 	for rows.Next() {
 		var task Task
-		if err := rows.Scan(&task.ID, &task.Name, &task.Description, &task.TagID, &task.TagName, &task.DueDate, &task.Completed, &task.CreatedAt); err != nil {
+		if err := rows.Scan(
+			&task.ID, &task.Name, &task.Description,
+			&task.TagID, &task.TagName, &task.TagColor,
+			&task.DueDate, &task.Completed, &task.CreatedAt,
+		); err != nil {
 			return nil, err
 		}
 		tasks = append(tasks, task)
@@ -84,13 +91,18 @@ func GetAllTasks(db *sql.DB) ([]Task, error) {
 func GetTaskByID(db *sql.DB, id int64) (Task, error) {
 	var task Task
 	row := db.QueryRow(`
-	SELECT t.id, t.name, t.description, t.tag_id, tg.name as tag_name, t.due_date, t.completed, t.created_at
+	SELECT t.id, t.name, t.description, t.tag_id, tg.name as tag_name, tg.color as tag_color,
+	       t.due_date, t.completed, t.created_at
 	FROM tasks t
 	LEFT JOIN tags tg ON t.tag_id = tg.id
 	WHERE t.id = ?
 	`, id)
 
-	err := row.Scan(&task.ID, &task.Name, &task.Description, &task.TagID, &task.TagName, &task.DueDate, &task.Completed, &task.CreatedAt)
+	err := row.Scan(
+		&task.ID, &task.Name, &task.Description,
+		&task.TagID, &task.TagName, &task.TagColor,
+		&task.DueDate, &task.Completed, &task.CreatedAt,
+	)
 	if err != nil {
 		return Task{}, err
 	}
@@ -141,7 +153,7 @@ func MarkTaskComplete(db *sql.DB, id int64) error {
 // ===== TAG FUNCTIONS =====
 
 func GetAllTags(db *sql.DB) ([]Tag, error) {
-	rows, err := db.Query("SELECT id, name FROM tags")
+	rows, err := db.Query("SELECT id, name, color FROM tags")
 	if err != nil {
 		return nil, err
 	}
@@ -150,7 +162,7 @@ func GetAllTags(db *sql.DB) ([]Tag, error) {
 	var tags []Tag
 	for rows.Next() {
 		var tag Tag
-		if err := rows.Scan(&tag.ID, &tag.Name); err != nil {
+		if err := rows.Scan(&tag.ID, &tag.Name, &tag.Color); err != nil {
 			return nil, err
 		}
 		tags = append(tags, tag)
@@ -160,7 +172,7 @@ func GetAllTags(db *sql.DB) ([]Tag, error) {
 }
 
 func CreateTag(db *sql.DB, tag Tag) (int64, error) {
-	result, err := db.Exec("INSERT INTO tags (name) VALUES (?)", tag.Name)
+	result, err := db.Exec("INSERT INTO tags (name, color) VALUES (?, ?)", tag.Name, tag.Color)
 	if err != nil {
 		return 0, err
 	}

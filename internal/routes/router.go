@@ -17,9 +17,9 @@ type Router struct {
 func NewRouter(database *sql.DB) http.Handler {
 	r := &Router{db: database}
 
-	m := mux.NewRouter() // use gorilla/mux router
+	m := mux.NewRouter()
 
-	// Tasks routes
+	// ===================== TASK ROUTES =====================
 	m.HandleFunc("/api/tasks", r.getAllTasks).Methods("GET")
 	m.HandleFunc("/api/tasks/{id:[0-9]+}", r.getTaskByID).Methods("GET")
 	m.HandleFunc("/api/tasks", r.createTask).Methods("POST")
@@ -27,16 +27,16 @@ func NewRouter(database *sql.DB) http.Handler {
 	m.HandleFunc("/api/tasks/{id:[0-9]+}", r.deleteTask).Methods("DELETE")
 	m.HandleFunc("/api/tasks/{id:[0-9]+}/complete", r.toggleTaskComplete).Methods("POST")
 
-	// Tags routes
+	// ===================== TAG ROUTES =====================
 	m.HandleFunc("/api/tags", r.getAllTags).Methods("GET")
 	m.HandleFunc("/api/tags", r.createTag).Methods("POST")
 	m.HandleFunc("/api/tags/{id:[0-9]+}", r.deleteTag).Methods("DELETE")
 
-	// Serve static files (CSS, JS, HTML)
+	// ===================== STATIC FILES =====================
 	fileServer := http.FileServer(http.Dir("./internal/frontend"))
 	m.PathPrefix("/static/").Handler(http.StripPrefix("/static/", fileServer))
 
-	// Serve home.html
+	// Pages
 	m.HandleFunc("/", func(w http.ResponseWriter, req *http.Request) {
 		http.ServeFile(w, req, "internal/frontend/home.html")
 	}).Methods("GET")
@@ -136,7 +136,6 @@ func (r *Router) deleteTask(w http.ResponseWriter, req *http.Request) {
 	json.NewEncoder(w).Encode(map[string]string{"message": "Tâche supprimée avec succès"})
 }
 
-// Toggle task completion
 func (r *Router) toggleTaskComplete(w http.ResponseWriter, req *http.Request) {
 	vars := mux.Vars(req)
 	id, err := strconv.ParseInt(vars["id"], 10, 64)
