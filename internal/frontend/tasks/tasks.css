@@ -13,12 +13,15 @@
     display: flex;
     flex-direction: column;
     gap: 5px;
+    transition: background 0.2s, box-shadow 0.2s; 
 }
-
+.task-item:hover {
+    background: #f0f6ff; /* light blue highlight similar to tags */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
 .task-item h3 {
     margin: 0;
 }
-
 /* Task tag labels */
 .task-tag {
     background: #007bff;
@@ -26,6 +29,13 @@
     padding: 2px 6px;
     border-radius: 4px;
     font-size: 0.85em;
+    font-weight: bold;
+    transition: transform 0.15s, box-shadow 0.15s;
+    cursor: default;
+}
+.task-tag:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 /* Due date */
@@ -72,4 +82,43 @@
 
 .close:hover {
     color: #000;
+}
+
+/* Filters section */
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 20px;
+    align-items: center;
+    font-weight: bold;
+}
+
+.filters label {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.filters select,
+.filters input[type="checkbox"] {
+    margin-top: 5px;
+    padding: 6px 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border 0.2s;
+}
+
+.filters select:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 0 3px rgba(74, 144, 226, 0.5);
+}
+
+.filters input[type="checkbox"] {
+    width: auto;
+    margin-top: 10px;
+    cursor: pointer;
 }

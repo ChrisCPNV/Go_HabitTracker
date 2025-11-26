@@ -12,13 +12,26 @@
 <body>
     <div id="headerContainer"></div>
     <main>
-        <h2>Your Habits</h2>
+        <h2>Your Habits / Tasks</h2>
+
+        <div class="filters">
+            <label>
+                Filter by tag:
+                <select id="tagFilter">
+                    <option value="">All Tags</option>
+                </select>
+            </label>
+        
+            <label>
+                Show completed:
+                <input type="checkbox" id="completedFilter">
+            </label>
+        </div>
 
         <ul id="taskList"></ul>
 
         <div class="actions">
             <button id="addHabitBtn">Add Habit</button>
-            <button id="viewCompletedBtn">View Completed</button>
         </div>
         
         <!-- Add Habit Modal -->

@@ -1,15 +1,54 @@
 // Track current filter state
 let currentShowCompleted = false;
+let currentTagFilter = "";
 
 // Fetch tasks from the API
 async function loadTasks() {
     try {
         const response = await fetch("/api/tasks");
-        const tasks = await response.json();
+        let tasks = await response.json();
+
+        if (currentTagFilter) {
+            tasks = tasks.filter(task => String(task.tag_id) == currentTagFilter);
+        }
+
         renderTasks(tasks, currentShowCompleted);
     } catch (error) {
         console.error("Error loading tasks:", error);
     }
+}
+
+async function loadTagsForFilter() {
+    const select = document.getElementById("tagFilter");
+    select.innerHTML = '<option value="">All Tags</option>';
+
+    try {
+        const response = await fetch("/api/tags");
+        const tags = await response.json();
+        tags.forEach(tag => {
+            const option = document.createElement("option");
+            option.value = tag.id;
+            option.textContent = tag.name;
+            select.appendChild(option);
+        });
+    } catch (err) {
+        console.error("Error loading tags:", err);
+    }
+}
+
+function setupFilters() {
+    const tagSelect = document.getElementById("tagFilter");
+    const completedCheckbox = document.getElementById("completedFilter");
+
+    tagSelect.addEventListener("change", () => {
+        currentTagFilter = tagSelect.value;
+        loadTasks();
+    });
+
+    completedCheckbox.addEventListener("change", () => {
+        currentShowCompleted = completedCheckbox.checked;
+        loadTasks();
+    });
 }
 
 function getContrastYIQ(hexcolor){
@@ -176,17 +215,12 @@ function setupButtons() {
             console.error("Error adding habit:", err);
         }
     });
-
-    document.getElementById("viewCompletedBtn").addEventListener("click", async () => {
-        currentShowCompleted = !currentShowCompleted;
-        loadTasks(currentShowCompleted);
-        document.getElementById("viewCompletedBtn").textContent =
-            currentShowCompleted ? "Hide Completed" : "View Completed";
-    });
 }
 
 // Initialize on DOM load
 document.addEventListener("DOMContentLoaded", () => {
+    loadTagsForFilter();
+    setupFilters();
     setupButtons();
     loadTasks();
 });
