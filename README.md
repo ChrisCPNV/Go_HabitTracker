@@ -41,14 +41,23 @@ Go_HabitTracker/
 │   ├── routes/
 │   │   └── router.go         # Route definitions & handlers
 │   ├── services/             
-│   └── frontend/             
-│       ├── app.js            
-│       ├── home.html         # Homepage with calendar view
-│       ├── tasks.html        
-│       ├── tags.html         
-│       ├── light.css         # Light theme CSS
-│       ├── calendar.css      # Calendar-specific CSS
-│       └── navbar.js         
+│   └── frontend/      
+│       ├── home/  
+│       │   ├── calendar.css      # Calendar-specific CSS
+│       │   ├── calendar.js
+│       │   └── home.html         # Homepage with calendar view 
+│       ├── navbar/ 
+│       │   ├── navbar.js
+│       │   └── header.html
+│       ├── tags/
+│       │   ├── tags.css      # tags-specific CSS
+│       │   ├── tags.js
+│       │   └── tags.html         
+│       ├── tasks/    
+│       │   ├── tasks.css      # tasks-specific CSS
+│       │   ├── tasks.js
+│       │   └── tasks.html                       
+│       └── global.css         # global theme CSS      
 ├── go.mod                    
 ├── go.sum                    
 ├── README.md                 
