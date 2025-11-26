@@ -26,7 +26,7 @@
 -  
 
 **Problèmes rencontrés / Solutions :**  
--  
+-  Aucun
 
 **Prochaines étapes :**  
 -  Trier les tags par couleurs
