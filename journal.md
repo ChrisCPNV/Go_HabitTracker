@@ -24,6 +24,7 @@
 -  Les tags ont des couleurs attribuées
 -  Le noms des tags s'adaptent si la couleur est plus sombre ou claire afin de pouvoir les lires
 -  Si la tâche n'est pas complété après sa date limite, la date est mise en évidence sur la page des tâches
+-  Ajout d'un filtre permettant de filter les tâches par tags
 
 **Problèmes rencontrés / Solutions :**  
 -  Aucun
