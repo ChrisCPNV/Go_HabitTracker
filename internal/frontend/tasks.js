@@ -12,6 +12,17 @@ async function loadTasks() {
     }
 }
 
+function getContrastYIQ(hexcolor){
+    // Convert hex to RGB
+    hexcolor = hexcolor.replace("#",""); 
+    const r = parseInt(hexcolor.substr(0,2),16);
+    const g = parseInt(hexcolor.substr(2,2),16);
+    const b = parseInt(hexcolor.substr(4,2),16);
+    // YIQ formula
+    const yiq = ((r*299)+(g*587)+(b*114))/1000;
+    return (yiq >= 128) ? "#000000" : "#ffffff"; // dark text for light bg, white for dark bg
+}
+
 // Fetch tags for the form select
 async function loadTags() {
     const tagSelect = document.getElementById("tagSelect");
@@ -47,6 +58,8 @@ function renderTasks(tasks, showCompleted = false) {
         if (task.tag_name && task.tag_id) {
             const tag = document.createElement("span");
             tag.textContent = task.tag_name;
+            tag.style.backgroundColor = task.tag_color;
+            tag.style.color = getContrastYIQ(task.tag_color || "#888");
             tag.classList.add("task-tag", `tag-${task.tag_id}`);
             item.appendChild(tag);
         }
