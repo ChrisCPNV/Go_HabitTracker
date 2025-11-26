@@ -12,7 +12,7 @@
 
 ### Session 6
 **Date :** 26.11.2025  
-**Durée :** 3.75 h  
+**Durée :** 3 h  
 **Objectif :**  
 -  Trier les tags par couleurs
 -  (Amélioration mineures de l'interface)
@@ -27,13 +27,11 @@
 -  Ajout d'un filtre permettant de filter les tâches par tags
 
 **Problèmes rencontrés / Solutions :**  
--  Aucun
+-  Durant certains changements de l'affichage du calendrier, je me suis rendu compte qu'un jour était sauté, ce qui décale tout. Pas encore fixer.
 
 **Prochaines étapes :**  
--  Trier les tags par couleurs
--  (Amélioration mineures de l'interface)
--  Amélioration du système de completion des tâches
--  Pouvoir voir si des tâches n'ont pas été complétées avant leurs dates limite
+-  Fixer le calendrier
+-  Faire en sorte que l'utilisateur puisse modifier les tâches
 
 ---
 
@@ -156,7 +154,7 @@
 -  Mettre le projet en place 
 
 ## Bilan final
-**Durée totale effectuée :** 15.75 h  
+**Durée totale effectuée :** 18.75 h  
 **Fonctionnalités réalisées :**  
 -  
 -  
