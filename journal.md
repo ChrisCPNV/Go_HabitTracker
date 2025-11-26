@@ -20,14 +20,13 @@
 -  Pouvoir voir si des tâches n'ont pas été complétées avant leurs dates limite
 
 **Tâches réalisées :**  
--  L'utilisateur peut gérer les tags, les créer et les supprimer
--  Les 3 pages sont créées et liées (tasks, tags, home)
--  Il y a une vue sous forme de calendrier
--  Mise à jour du README
--  Mise à jour de la documentation
+-  L'utilisateur peut indiquer une couleur pour un tag
+-  Les tags ont des couleurs attribuées
+-  Le noms des tags s'adaptent si la couleur est plus sombre ou claire afin de pouvoir les lires
+-  
 
 **Problèmes rencontrés / Solutions :**  
--  Je n'arrive pas à reproduire une mise en page similaire à celle des tâches. (le navigateur gardait l'ancien style en cache, il a fallu faire ctrl+shift+r)
+-  
 
 **Prochaines étapes :**  
 -  Trier les tags par couleurs
