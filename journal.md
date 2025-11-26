@@ -10,6 +10,33 @@
 
 ## Journal de travail
 
+### Session 6
+**Date :** 26.11.2025  
+**Durée :** 3.75 h  
+**Objectif :**  
+-  Trier les tags par couleurs
+-  (Amélioration mineures de l'interface)
+-  Amélioration du système de completion des tâches
+-  Pouvoir voir si des tâches n'ont pas été complétées avant leurs dates limite
+
+**Tâches réalisées :**  
+-  L'utilisateur peut gérer les tags, les créer et les supprimer
+-  Les 3 pages sont créées et liées (tasks, tags, home)
+-  Il y a une vue sous forme de calendrier
+-  Mise à jour du README
+-  Mise à jour de la documentation
+
+**Problèmes rencontrés / Solutions :**  
+-  Je n'arrive pas à reproduire une mise en page similaire à celle des tâches. (le navigateur gardait l'ancien style en cache, il a fallu faire ctrl+shift+r)
+
+**Prochaines étapes :**  
+-  Trier les tags par couleurs
+-  (Amélioration mineures de l'interface)
+-  Amélioration du système de completion des tâches
+-  Pouvoir voir si des tâches n'ont pas été complétées avant leurs dates limite
+
+---
+
 ### Session 5
 **Date :** 25.11.2025  
 **Durée :** 3.75 h  
@@ -129,7 +156,7 @@
 -  Mettre le projet en place 
 
 ## Bilan final
-**Durée totale effectuée :** XX h  
+**Durée totale effectuée :** 15.75 h  
 **Fonctionnalités réalisées :**  
 -  
 -  
