@@ -12,19 +12,22 @@
 
 ### Session 7
 **Date :** 1.12.2025  
-**Durée :** 3 h  
+**Durée :** 2 h  
 **Objectif :**  
 -  Fixer le calendrier
 -  Faire en sorte que l'utilisateur puisse modifier les tâches
 
 **Tâches réalisées :**  
 -  Le calendrier est fixer, le problème venait du CSS qui aggrandissait légérement la case d'une date si celle-ci contenait une tâche
+-  L'utilisateur peut modifier les tâches en double-cliquant sur la dîte tâche, sur le calendrier et l page dédiée aux tâches
+-  Avancement sur la documentation
 
 **Problèmes rencontrés / Solutions :**  
 -  Aucun
 
 **Prochaines étapes :**  
--  
+-  Ajouter un mode sombre
+-  Ajouter un footer avec des informations importantes
 
 ---
 
@@ -172,7 +175,7 @@
 -  Mettre le projet en place 
 
 ## Bilan final
-**Durée totale effectuée :** 18.75 h  
+**Durée totale effectuée :** 20.75 h  
 **Fonctionnalités réalisées :**  
 -  
 -  
