@@ -25,20 +25,26 @@ async function loadTasks() {
 }
 
 function normalizeDate(d) {
-    if (/^\d{2}\.\d{2}\.\d{4}$/.test(d)) {
+    // ISO date (2025-11-08 or 2025-11-8)
+    if (d.includes("T")) d = d.split("T")[0];
+
+    // Convert DD.MM.YYYY → YYYY-MM-DD
+    if (d.includes(".")) {
         const [day, month, year] = d.split(".");
-        return `${year}-${month}-${day}`;
+        return `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
     }
-    return d.split("T")[0];
+
+    // Convert YYYY-M-D → YYYY-MM-DD
+    const [y, m, day] = d.split("-");
+    return `${y}-${m.padStart(2, "0")}-${day.padStart(2, "0")}`;
 }
+
 
 // ---------------- Render calendar ----------------
 async function updateCalendar() {
     await loadTasks();
 
-    // 1. Determine first day of the month and days in current/previous month
     let firstDay = new Date(currentYear, currentMonth, 1).getDay();
-    // Adjust so Monday=0, Sunday=6
     firstDay = (firstDay === 0) ? 6 : firstDay - 1;
 
     const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
@@ -46,23 +52,22 @@ async function updateCalendar() {
 
     let html = "";
 
-    // 2. Previous month tail
     for (let i = 0; i < firstDay; i++) {
-        html += `<li class="inactive">${prevMonthDays - firstDay + 1 + i}</li>`;
+        const day = prevMonthDays - (firstDay - 1) + i;
+        html += `<li class="inactive">${day}</li>`;
     }
 
-    // 3. Current month days
     for (let d = 1; d <= daysInMonth; d++) {
         const dateStr = `${currentYear}-${String(currentMonth + 1).padStart(2, "0")}-${String(d).padStart(2, "0")}`;
         let classes = "";
 
         if (tasksByDate[dateStr]) classes += " highlight";
 
-        const todayDate = new Date();
+        const today = new Date();
         if (
-            todayDate.getDate() === d &&
-            todayDate.getMonth() === currentMonth &&
-            todayDate.getFullYear() === currentYear
+            today.getFullYear() === currentYear &&
+            today.getMonth() === currentMonth &&
+            today.getDate() === d
         ) {
             classes += " active";
         }
@@ -70,20 +75,19 @@ async function updateCalendar() {
         html += `<li class="${classes.trim()}" data-date="${dateStr}">${d}</li>`;
     }
 
-    // 4. Next month head to fill last week
     const totalCells = html.split("<li").length - 1;
-    const nextMonthCells = totalCells % 7 === 0 ? 0 : 7 - (totalCells % 7);
+    const nextFill = totalCells % 7 === 0 ? 0 : 7 - (totalCells % 7);
 
-    for (let i = 1; i <= nextMonthCells; i++) {
+    for (let i = 1; i <= nextFill; i++) {
         html += `<li class="inactive">${i}</li>`;
     }
 
-    // 5. Update calendar display
     currDate.textContent = `${months[currentMonth]} ${currentYear}`;
     dayContainer.innerHTML = html;
 
     addDayClickListeners();
 }
+
 
 // ---------------- Day click ----------------
 function addDayClickListeners(){

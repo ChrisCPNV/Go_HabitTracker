@@ -39,7 +39,7 @@
     cursor: pointer;
     border-radius: 50%;
     font-size: 1.4rem;
-    color: #4a90e2;
+    color: #112e4e;
     user-select: none;
     transition: background 0.2s, color 0.2s;
 }
@@ -93,6 +93,7 @@
     cursor: pointer;
     border-radius: 8px;
     transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    box-sizing: border-box;
 }
 
 /* Inactive days */
@@ -110,8 +111,10 @@
 
 /* Highlight days with tasks */
 .calendar-dates li.highlight {
-    border: 2px dotted #4a90e2;
+    outline: 2px dotted #4a90e2;
+    outline-offset: -2px;
 }
+
 
 /* Hover effect for days */
 .calendar-dates li:not(.inactive):hover {
