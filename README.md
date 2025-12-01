@@ -15,6 +15,7 @@ Go_HabitTracker is a full-stack habit tracker that allows users to:
 - Mark tasks as complete
 - Track tasks visually with a calendar
 - View tasks for a selected day alongside the calendar
+- Edit tasks by double-clicking it, opening a shared modal
 - Manage habit data persistently with SQLite
 
 The application provides a REST API for backend management and a responsive frontend built with HTML, CSS, and JavaScript.
@@ -56,7 +57,9 @@ Go_HabitTracker/
 │       ├── tasks/    
 │       │   ├── tasks.css      # tasks-specific CSS
 │       │   ├── tasks.js
-│       │   └── tasks.html                       
+│       │   └── tasks.html 
+|       ├── modals/    
+│       │   └── editTaskModal.html     # shared modals             
 │       └── global.css         # global theme CSS      
 ├── go.mod                    
 ├── go.sum                    
@@ -158,7 +161,9 @@ The server will start on `http://localhost:8080`
 
 ## **Frontend Features**
 
-### **Calendar View**
+### **Home Page**
+
+#### **Calendar View**
 
 - Visual monthly calendar displays all day
 - Tasks wth a due date ar highlighted on the calendar
@@ -166,13 +171,19 @@ The server will start on `http://localhost:8080`
 - Clicking a day shows all tasks for that day in a sidebar
 - Task names and optional description are displayed
 
-### **Task Sidebar**
+#### **Task Sidebar**
 
 - Shows tasks for the selected day
 - Each task displays :
   - Name (bold)
-  - Description (if present)+
+  - Description (if present)
+  - Tag (color-coded)
 - Updates dynamically when the user selects a different day
+- Tasks can be edited by double-clicking
+
+### **Task Page**
+
+### **Tag Page**
 
 ## **Usage Examples**
 
@@ -254,6 +265,7 @@ GOOS=darwin GOARCH=amd64 go build -o GoHabitTracker ./cmd/server
 ## **Future Enhancements**
 
 - [x] Frontend UI (HTML/CSS/JavaScript)
+- [x] Double-click to edit tasks
 - [ ] User authentication
 - [ ] Habit statistics and reports
 - [ ] Recurring tasks/habits
