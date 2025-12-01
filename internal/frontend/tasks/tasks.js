@@ -91,6 +91,7 @@ function renderTasks(tasks, showCompleted = false) {
         if (!showCompleted && task.completed) return;
 
         const item = document.createElement("li");
+        item.addEventListener("dblclick", () => openEditModal(task));
         item.classList.add("task-item");
 
         // Tag label with color
@@ -141,6 +142,7 @@ function renderTasks(tasks, showCompleted = false) {
 
                 item.appendChild(due);
             }
+
         }
 
         // Completed checkbox
@@ -217,10 +219,91 @@ function setupButtons() {
     });
 }
 
+async function loadEditModalHTML() {
+    const resp = await fetch("/static/modals/editTaskModal.html");
+    const html = await resp.text();
+
+    // Insert modal HTML at the end of the body
+    document.body.insertAdjacentHTML("beforeend", html);
+}
+
+async function openEditModal(task) {
+    const modal = document.getElementById("editHabitModal");
+
+    // Load tag options
+    const tagSelect = document.getElementById("editTagSelect");
+    tagSelect.innerHTML = '<option value="">--Select a Tag--</option>';
+
+    const tagResp = await fetch("/api/tags");
+    const tags = await tagResp.json();
+    tags.forEach(tag => {
+        const opt = document.createElement("option");
+        opt.value = tag.id;
+        opt.textContent = tag.name;
+        tagSelect.appendChild(opt);
+    });
+
+    // Fill fields
+    document.getElementById("editTaskId").value = task.id;
+    document.getElementById("editName").value = task.name;
+    document.getElementById("editDescription").value = task.description || "";
+    document.getElementById("editTagSelect").value = task.tag_id || "";
+    document.getElementById("editDueDate").value = task.due_date || "";
+
+    modal.style.display = "block";
+}
+
+function setupEditModal() {
+    const modal = document.getElementById("editHabitModal");
+    const closeBtn = document.getElementById("closeEditModal");
+    const form = document.getElementById("editHabitForm");
+
+    closeBtn.addEventListener("click", () => modal.style.display = "none");
+
+    window.addEventListener("click", (e) => {
+        if (e.target === modal) modal.style.display = "none";
+    });
+
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(form);
+        const id = formData.get("id");
+
+        const data = {
+            name: formData.get("name"),
+            description: formData.get("description") || null,
+            tag_id: formData.get("tag_id") ? parseInt(formData.get("tag_id")) : null,
+            due_date: formData.get("due_date") || null
+        };
+
+        try {
+            const resp = await fetch(`/api/tasks/${id}`, {
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data)
+            });
+
+            if (!resp.ok) {
+                console.error(await resp.text());
+                return;
+            }
+
+            modal.style.display = "none";
+            loadTasks();
+
+        } catch (err) {
+            console.error("Failed to update task:", err);
+        }
+    });
+}
+
 // Initialize on DOM load
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async() => {
     loadTagsForFilter();
     setupFilters();
     setupButtons();
+    await loadEditModalHTML();
+    setupEditModal();
     loadTasks();
 });

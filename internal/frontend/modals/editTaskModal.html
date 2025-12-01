@@ -1,0 +1,40 @@
+<div id="editHabitModal" class="modal" style="display: none;">
+    <div class="modal-content">
+        <span id="closeEditModal" class="close">&times;</span>
+        <h2>Edit Habit</h2>
+
+        <form id="editHabitForm">
+            
+            <!-- Hidden task ID -->
+            <input type="hidden" name="id" id="editTaskId">
+
+            <label>
+                Name:<br>
+                <input type="text" name="name" id="editName" required />
+            </label>
+            <br><br>
+
+            <label>
+                Description:<br>
+                <textarea name="description" id="editDescription"></textarea>
+            </label>
+            <br><br>
+
+            <label>
+                Tag:<br>
+                <select name="tag_id" id="editTagSelect">
+                    <option value="">--Select a Tag--</option>
+                </select>
+            </label>
+            <br><br>
+
+            <label>
+                Due Date:<br>
+                <input type="date" name="due_date" id="editDueDate" />
+            </label>
+            <br><br>
+
+            <button type="submit">Save Changes</button>
+        </form>
+    </div>
+</div>
