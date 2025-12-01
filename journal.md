@@ -10,6 +10,24 @@
 
 ## Journal de travail
 
+### Session 7
+**Date :** 1.12.2025  
+**Durée :** 3 h  
+**Objectif :**  
+-  Fixer le calendrier
+-  Faire en sorte que l'utilisateur puisse modifier les tâches
+
+**Tâches réalisées :**  
+-  Le calendrier est fixer, le problème venait du CSS qui aggrandissait légérement la case d'une date si celle-ci contenait une tâche
+
+**Problèmes rencontrés / Solutions :**  
+-  Aucun
+
+**Prochaines étapes :**  
+-  
+
+---
+
 ### Session 6
 **Date :** 26.11.2025  
 **Durée :** 3 h  
