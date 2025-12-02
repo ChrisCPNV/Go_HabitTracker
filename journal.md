@@ -10,6 +10,25 @@
 
 ## Journal de travail
 
+### Session 8
+**Date :** 2.12.2025  
+**Durée :** 2.5 h  
+**Objectif :**  
+-  Ajouter un mode sombre
+-  Ajouter un footer avec des informations importantes
+
+**Tâches réalisées :**  
+-  Ajout d'un thème sombre
+-  Ajout d'un bouton pour changer de thème
+
+**Problèmes rencontrés / Solutions :**  
+-  Aucun
+
+**Prochaines étapes :**  
+-  
+
+---
+
 ### Session 7
 **Date :** 1.12.2025  
 **Durée :** 2 h  
