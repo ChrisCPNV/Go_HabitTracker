@@ -161,6 +161,13 @@ The server will start on `http://localhost:8080`
 
 ## **Frontend Features**
 
+### **General**
+
+- A navigation bar is shared by all pages and contains:
+  - A switch to change from light theme to dark theme and vice versa
+  - The name of the app and a small description
+  - Buttons leading to each pages
+
 ### **Home Page**
 
 #### **Calendar View**
@@ -183,9 +190,25 @@ The server will start on `http://localhost:8080`
 
 ### **Task Page**
 
+- Shows all tasks created
+- Each tasks display
+  - The tag (if present)
+  - The name
+  - The description (if present)
+  - The due date (if present)
+- Filters to find tasks by their tags
+- Tasks can be marked as completed, they become hidden
+- Completed tasks can be shown with a checkbox
+- A button to add tasks at the bottom
+
 ### **Tag Page**
 
-## **Usage Examples**
+- Shows all tags created
+- The tags are given a color reflected by their appearance
+- A button to delete each tag is present
+- A bottom to add tags is at the bottom
+
+## **Curl Usage Examples**
 
 ### **Create a Tag**
 
