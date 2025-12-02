@@ -224,3 +224,104 @@
 .close:hover {
     opacity: 0.7;
 }
+/* ============================================================
+   DAY VIEW / HOUR SCHEDULE
+   ============================================================ */
+
+.day-view {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 10px;
+    box-shadow: 0 3px 8px var(--shadow);
+    width: 220px;
+    min-height: 400px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    color: var(--text);
+    font-family: Arial, sans-serif;
+}
+
+.day-view h3 {
+    text-align: center;
+    margin-bottom: 12px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--text);
+    border-bottom: 1px solid var(--card-border);
+    padding-bottom: 6px;
+}
+
+/* Each hour block */
+.day-view .hour {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    border-left: 3px solid transparent;
+    border-bottom: 1px solid var(--card-border);
+    padding: 6px 8px;
+    min-height: 36px;
+    box-sizing: border-box;
+    position: relative;
+    transition: background 0.2s, border-left-color 0.2s;
+}
+
+.day-view .hour:hover {
+    background: rgba(255,255,255,0.05);
+    border-left-color: var(--primary);
+}
+
+/* Time label */
+.day-view .hour span.time {
+    width: 45px;
+    font-weight: bold;
+    color: var(--task-desc);
+    opacity: 0.8;
+    flex-shrink: 0;
+    text-align: right;
+    margin-right: 8px;
+}
+
+/* Event text */
+.day-view .hour span.event {
+    flex-grow: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-left: 4px;
+}
+
+/* Optional colored bar for tasks */
+.day-view .hour[data-has-task="true"] {
+    border-left-color: var(--primary);
+    font-weight: bold;
+}
+
+/* Scrollbar styling */
+.day-view::-webkit-scrollbar {
+    width: 6px;
+}
+
+.day-view::-webkit-scrollbar-thumb {
+    background: var(--primary-hover);
+    border-radius: 3px;
+}
+
+.day-view::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.05);
+    border-radius: 3px;
+}
+
+/* Responsive adjustment */
+@media (max-width: 800px) {
+    .calendar-main {
+        flex-direction: column;
+        align-items: center;
+    }
+    .day-view {
+        width: 100%;
+        min-height: 300px;
+        margin-top: 20px;
+    }
+}
