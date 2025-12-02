@@ -20,6 +20,7 @@
 **Tâches réalisées :**  
 -  Ajout d'un thème sombre
 -  Ajout d'un bouton pour changer de thème
+-  Ajout d'un pied de page simple et consistant
 
 **Problèmes rencontrés / Solutions :**  
 -  Aucun
