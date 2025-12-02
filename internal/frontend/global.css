@@ -11,6 +11,7 @@
     --shadow: rgba(0,0,0,0.1);
     --nav-hover: rgba(255, 255, 255, 0.2);
     --header-text: #ffffff;
+    --footer-text: #ffffff;
     --task-desc: rgba(34,34,34,0.7); 
 }
 
@@ -26,6 +27,7 @@
         --shadow: rgba(0,0,0,0.4);
         --nav-hover: rgba(255, 255, 255, 0.15);
         --header-text: #ffffff;
+        --footer-text: #ffffff;
         --task-desc: rgba(255,255,255,0.8);
     }
 }
@@ -41,6 +43,7 @@ html[data-theme='dark'] {
     --shadow: rgba(0,0,0,0.4);
     --nav-hover: rgba(255, 255, 255, 0.15);
     --header-text: #ffffff;
+    --footer-text: #ffffff;
     --task-desc: rgba(255,255,255,0.8);
 }
 
@@ -55,19 +58,57 @@ html[data-theme='light'] {
     --shadow: rgba(0,0,0,0.1);
     --nav-hover: rgba(255, 255, 255, 0.2);
     --header-text: #ffffff;
+    --footer-text: #ffffff;
     --task-desc: rgba(34,34,34,0.7); 
 }
 
 /* ============================================================
    GLOBAL STYLES
    ============================================================ */
-body {
-    font-family: Arial, sans-serif;
+html, body {
+    height: 100%;
     margin: 0;
+    font-family: Arial, sans-serif;
     background: var(--bg);
     color: var(--text);
+    display: flex;
+    flex-direction: column;
+}
+main {
+    flex: 1; /* Make main fill remaining vertical space */
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background: var(--card-bg);
+    color: var(--text);
+    border-radius: 10px;
+    box-shadow: 0 2px 6px var(--shadow);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
 }
 
+button {
+    padding: 10px 15px;
+    background: var(--primary);
+    border: none;
+    border-radius: 5px;
+    color: var(--header-text);
+    cursor: pointer;
+}
+
+button:hover {
+    background: var(--primary-hover);
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
 header {
     background: var(--primary);
     padding: 20px 40px;
@@ -105,36 +146,25 @@ header nav a {
 
 header nav a:hover {
     background: var(--nav-hover);
-    color: var(--header-text);
 }
 
-main {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 20px;
-    background: var(--card-bg);
-    color: var(--text);
-    border-radius: 10px;
-    box-shadow: 0 2px 6px var(--shadow);
-}
-
-.actions {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-}
-
-button {
-    padding: 10px 15px;
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer {
     background: var(--primary);
-    border: none;
-    border-radius: 5px;
-    color: var(--header-text);
-    cursor: pointer;
+    padding: 20px 40px;
+    color: var(--footer-text);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: auto; 
 }
-
-button:hover {
-    background: var(--primary-hover);
+/* Footer paragraph */
+footer p {
+    margin: 5px 0;
+    font-size: 1rem;
 }
 
 /* ============================================================
@@ -166,7 +196,6 @@ button:hover {
     transition: background 0.3s;
 }
 
-/* Use a real child element for the knob */
 .theme-switch .knob {
     position: absolute;
     top: 2px;
@@ -178,7 +207,6 @@ button:hover {
     transition: transform 0.3s, background 0.3s;
 }
 
-/* Dark mode */
 html[data-theme='dark'] .theme-switch .knob {
     transform: translateX(26px);
 }
@@ -214,6 +242,12 @@ html[data-theme='light'] .theme-icon.moon {
         font-size: 1.5rem;
     }
     header p {
+        font-size: 0.9rem;
+    }
+    footer {
+        padding: 15px 20px;
+    }
+    footer p {
         font-size: 0.9rem;
     }
     #themeContainer {
