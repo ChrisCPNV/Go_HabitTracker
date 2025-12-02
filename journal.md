@@ -12,7 +12,7 @@
 
 ### Session 8
 **Date :** 2.12.2025  
-**Durée :** 2.5 h  
+**Durée :** 3 h  
 **Objectif :**  
 -  Ajouter un mode sombre
 -  Ajouter un footer avec des informations importantes
@@ -21,12 +21,15 @@
 -  Ajout d'un thème sombre
 -  Ajout d'un bouton pour changer de thème
 -  Ajout d'un pied de page simple et consistant
+-  Ajout d'une vue des heures de la journée sélectionnée
 
 **Problèmes rencontrés / Solutions :**  
 -  Aucun
 
 **Prochaines étapes :**  
--  
+-  Finir la vue des heures
+-  Finir la documentation
+-  Polir le visuel de l'application
 
 ---
 
@@ -195,7 +198,7 @@
 -  Mettre le projet en place 
 
 ## Bilan final
-**Durée totale effectuée :** 20.75 h  
+**Durée totale effectuée :** 23.75 h  
 **Fonctionnalités réalisées :**  
 -  
 -  
