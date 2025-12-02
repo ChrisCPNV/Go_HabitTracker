@@ -50,6 +50,9 @@ Go_HabitTracker/
 │       ├── navbar/ 
 │       │   ├── navbar.js
 │       │   └── header.html
+│       ├── footer/ 
+│       │   ├── footer.js
+│       │   └── footer.html
 │       ├── tags/
 │       │   ├── tags.css      # tags-specific CSS
 │       │   ├── tags.js
