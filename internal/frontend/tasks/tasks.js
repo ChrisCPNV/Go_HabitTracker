@@ -82,7 +82,6 @@ async function loadTags() {
     }
 }
 
-// Render tasks
 function renderTasks(tasks, showCompleted = false) {
     const list = document.getElementById("taskList");
     list.innerHTML = "";
@@ -91,20 +90,20 @@ function renderTasks(tasks, showCompleted = false) {
         if (!showCompleted && task.completed) return;
 
         const item = document.createElement("li");
-        item.addEventListener("dblclick", () => openEditModal(task));
         item.classList.add("task-item");
+        item.addEventListener("dblclick", () => openEditModal(task));
 
-        // Tag label with color
+        // --- TAGS ROW AT THE TOP ---
         if (task.tag_name && task.tag_id) {
             const tag = document.createElement("span");
             tag.textContent = task.tag_name;
-            tag.style.backgroundColor = task.tag_color;
-            tag.style.color = getContrastYIQ(task.tag_color || "#888");
-            tag.classList.add("task-tag", `tag-${task.tag_id}`);
-            item.appendChild(tag);
+            tag.style.backgroundColor = task.tag_color || "#007bff";
+            tag.style.color = getContrastYIQ(task.tag_color || "#007bff");
+            tag.classList.add("task-tag");
+            item.appendChild(tag); 
         }
 
-        // Task name
+        // --- TASK NAME ---
         const title = document.createElement("h3");
         title.textContent = task.name;
         if (task.completed) {
@@ -113,14 +112,14 @@ function renderTasks(tasks, showCompleted = false) {
         }
         item.appendChild(title);
 
-        // Description
+        // --- TASK DESCRIPTION ---
         if (task.description) {
             const desc = document.createElement("p");
             desc.textContent = task.description;
             item.appendChild(desc);
         }
 
-        // Due date
+        // --- DUE DATE ---
         if (task.due_date) {
             let dueDate;
             if (/^\d{2}\.\d{2}\.\d{4}$/.test(task.due_date)) {
@@ -133,19 +132,15 @@ function renderTasks(tasks, showCompleted = false) {
                 const due = document.createElement("span");
                 due.textContent = `Due: ${dueDate.toLocaleDateString()}`;
                 due.classList.add("task-due");
-
-                // Highlight the task if overdue
                 const now = new Date();
                 if (dueDate < now && !task.completed) {
                     due.classList.add("overdue");
                 }
-
                 item.appendChild(due);
             }
-
         }
 
-        // Completed checkbox
+        // --- COMPLETED CHECKBOX ---
         const checkbox = document.createElement("input");
         checkbox.type = "checkbox";
         checkbox.checked = task.completed;
@@ -162,6 +157,7 @@ function renderTasks(tasks, showCompleted = false) {
         list.appendChild(item);
     });
 }
+
 
 // Setup modal and buttons
 function setupButtons() {

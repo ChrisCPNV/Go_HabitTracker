@@ -1,28 +1,36 @@
-/* Calendar main container */
+/* ============================================================
+   CALENDAR LAYOUT
+   ============================================================ */
+
 .calendar-main {
     display: flex;
     gap: 20px;
     justify-content: center;
     align-items: flex-start;
     font-family: Arial, sans-serif;
+    color: var(--text);
 }
 
 /* Calendar panel */
 .calendar-container {
-    background: white;
+    background: var(--card-bg);
     width: 320px;
     border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    color: #333;
+    box-shadow: 0 2px 6px var(--shadow);
+    border: 1px solid var(--card-border);
+    color: var(--text);
 }
 
-/* Calendar header */
-.calendar-container header {
+/* ============================================================
+   HEADER
+   ============================================================ */
+
+.calendar-container > .calendar-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 15px 20px 8px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid var(--card-border);
 }
 
 /* Navigation arrows */
@@ -31,7 +39,7 @@
     gap: 5px;
 }
 
-.calendar-navigation span {
+.calendar-container .calendar-navigation span {
     height: 30px;
     width: 30px;
     line-height: 30px;
@@ -39,28 +47,31 @@
     cursor: pointer;
     border-radius: 50%;
     font-size: 1.4rem;
-    color: #112e4e;
+    color: var(--header-text);
     user-select: none;
     transition: background 0.2s, color 0.2s;
 }
 
-.calendar-navigation span:hover {
-    background: #4a90e2;
-    color: white;
+.calendar-container .calendar-navigation span:hover {
+    background: var(--primary);
+    color: #fff;
 }
 
 /* Current month text */
-.calendar-current-date {
+.calendar-container .calendar-current-date {
     font-weight: bold;
     font-size: 1.2rem;
 }
 
-/* Calendar body */
-.calendar-body {
+/* ============================================================
+   BODY / WEEKDAYS
+   ============================================================ */
+
+.calendar-container .calendar-body {
     padding: 10px;
 }
 
-.calendar-weekdays {
+.calendar-container .calendar-weekdays {
     display: flex;
     list-style: none;
     justify-content: space-between;
@@ -68,23 +79,27 @@
     margin-bottom: 5px;
 }
 
-.calendar-weekdays li {
+.calendar-container .calendar-weekdays li {
     font-weight: bold;
     font-size: 0.85rem;
     width: calc(100% / 7);
     text-align: center;
-    color: #555;
+    color: var(--text);
+    opacity: 0.7;
 }
 
-/* Calendar dates grid */
-.calendar-dates {
+/* ============================================================
+   DATES
+   ============================================================ */
+
+.calendar-container .calendar-dates {
     display: flex;
     flex-wrap: wrap;
     list-style: none;
     padding: 0;
 }
 
-.calendar-dates li {
+.calendar-container .calendar-dates li {
     width: calc(100% / 7);
     height: 40px;
     line-height: 40px;
@@ -94,49 +109,54 @@
     border-radius: 8px;
     transition: background 0.2s, color 0.2s, box-shadow 0.2s;
     box-sizing: border-box;
+    color: var(--text);
 }
 
 /* Inactive days */
-.calendar-dates li.inactive {
-    color: #aaa;
+.calendar-container .calendar-dates li.inactive {
+    color: rgba(200,200,200,0.6);
     cursor: default;
 }
 
 /* Today */
-.calendar-dates li.active {
-    background: #4a90e2;
-    color: white;
+.calendar-container .calendar-dates li.active {
+    background: var(--primary);
+    color: #fff;
     font-weight: bold;
 }
 
 /* Highlight days with tasks */
-.calendar-dates li.highlight {
-    outline: 2px dotted #4a90e2;
+.calendar-container .calendar-dates li.highlight {
+    outline: 2px dotted var(--primary);
     outline-offset: -2px;
 }
 
-
-/* Hover effect for days */
-.calendar-dates li:not(.inactive):hover {
-    background: #e6f0ff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+/* Hover effect */
+.calendar-container .calendar-dates li:not(.inactive):hover {
+    background: rgba(255,255,255,0.08);
+    box-shadow: 0 2px 4px var(--shadow);
 }
 
-/* Tasks panel */
+/* ============================================================
+   TASKS SIDEBAR
+   ============================================================ */
+
 .day-tasks {
-    background: white;
+    background: var(--card-bg);
     padding: 15px;
     border-radius: 10px;
     width: 220px;
     min-height: 300px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    color: #333;
+    box-shadow: 0 2px 6px var(--shadow);
+    border: 1px solid var(--card-border);
+    color: var(--text);
 }
 
 .day-tasks h3 {
     margin-bottom: 10px;
     font-size: 1.1rem;
     text-align: center;
+    color: var(--text);
 }
 
 .day-tasks ul {
@@ -146,24 +166,29 @@
 
 .day-tasks li {
     padding: 6px 8px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid var(--card-border);
     border-radius: 5px;
     margin-bottom: 4px;
-    background: #f9f9f9;
+    background: var(--card-bg);
     transition: background 0.2s;
+    color: var(--text);
 }
 
 .day-tasks li:hover {
-    background: #e6f0ff;
+    background: rgba(255,255,255,0.08);
 }
 
-/* Task description inside day-tasks */
-.day-tasks li p {
+.task-desc {
     margin: 2px 0 0 0;
     font-size: 0.9em;
-    color: #555;
+    color: var(--task-desc);
+    opacity: 0.8;
 }
-/* Modal container */
+
+/* ============================================================
+   MODAL
+   ============================================================ */
+
 .modal {
     display: none;
     position: fixed;
@@ -176,18 +201,20 @@
     background-color: rgba(0,0,0,0.4);
 }
 
-/* Modal content box */
 .modal-content {
-    background-color: #fff;
+    background-color: var(--card-bg);
     margin: 10% auto;
     padding: 20px;
     border-radius: 10px;
     max-width: 400px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 10px var(--shadow);
+    border: 1px solid var(--card-border);
+    color: var(--text);
 }
+
 /* Close button */
 .close {
-    color: #aaa;
+    color: var(--text);
     float: right;
     font-size: 28px;
     font-weight: bold;
@@ -195,5 +222,5 @@
 }
 
 .close:hover {
-    color: #000;
+    opacity: 0.7;
 }

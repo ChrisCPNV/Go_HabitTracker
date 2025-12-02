@@ -128,10 +128,8 @@ function showTasksForDay(dateStr) {
 
         if (t.description) {
             const desc = document.createElement("p");
+            desc.classList.add("task-desc");
             desc.textContent = t.description;
-            desc.style.margin = "2px 0 0 0";
-            desc.style.fontSize = "0.9em";
-            desc.style.color = "#555";
             li.appendChild(desc);
         }
 

@@ -1,18 +1,81 @@
-/* Global body and font */
+/* ============================================================
+   THEME VARIABLES
+   ============================================================ */
+:root {
+    --bg: #f7f7f7;
+    --text: #222;
+    --card-bg: #ffffff;
+    --card-border: #ddd;
+    --primary: #4a90e2;
+    --primary-hover: #3b76b9;
+    --shadow: rgba(0,0,0,0.1);
+    --nav-hover: rgba(255, 255, 255, 0.2);
+    --header-text: #ffffff;
+    --task-desc: rgba(34,34,34,0.7); 
+}
+
+/* Auto Dark Mode (based on system) */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #121212;
+        --text: #e5e5e5;
+        --card-bg: #1e1e1e;
+        --card-border: #333;
+        --primary: #4a90e2;
+        --primary-hover: #3670a9;
+        --shadow: rgba(0,0,0,0.4);
+        --nav-hover: rgba(255, 255, 255, 0.15);
+        --header-text: #ffffff;
+        --task-desc: rgba(255,255,255,0.8);
+    }
+}
+
+/* Manual override — DARK */
+html[data-theme='dark'] {
+    --bg: #121212;
+    --text: #e5e5e5;
+    --card-bg: #1e1e1e;
+    --card-border: #333;
+    --primary: #4a90e2;
+    --primary-hover: #3670a9;
+    --shadow: rgba(0,0,0,0.4);
+    --nav-hover: rgba(255, 255, 255, 0.15);
+    --header-text: #ffffff;
+    --task-desc: rgba(255,255,255,0.8);
+}
+
+/* Manual override — LIGHT */
+html[data-theme='light'] {
+    --bg: #f7f7f7;
+    --text: #222;
+    --card-bg: #ffffff;
+    --card-border: #ddd;
+    --primary: #4a90e2;
+    --primary-hover: #3b76b9;
+    --shadow: rgba(0,0,0,0.1);
+    --nav-hover: rgba(255, 255, 255, 0.2);
+    --header-text: #ffffff;
+    --task-desc: rgba(34,34,34,0.7); 
+}
+
+/* ============================================================
+   GLOBAL STYLES
+   ============================================================ */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    background: #f7f7f7;
+    background: var(--bg);
+    color: var(--text);
 }
 
-/* Header */
 header {
-    background: #4a90e2;
+    background: var(--primary);
     padding: 20px 40px;
-    color: white;
+    color: var(--header-text);
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
 }
 
 header h1 {
@@ -25,7 +88,6 @@ header p {
     font-size: 1rem;
 }
 
-/* Navbar */
 header nav {
     display: flex;
     gap: 20px;
@@ -33,7 +95,7 @@ header nav {
 }
 
 header nav a {
-    color: white;
+    color: var(--header-text);
     text-decoration: none;
     padding: 8px 12px;
     border-radius: 5px;
@@ -42,21 +104,20 @@ header nav a {
 }
 
 header nav a:hover {
-    background: rgba(255, 255, 255, 0.2);
-    color: #fff;
+    background: var(--nav-hover);
+    color: var(--header-text);
 }
 
-/* Main container */
 main {
     max-width: 800px;
     margin: 40px auto;
     padding: 20px;
-    background: white;
+    background: var(--card-bg);
+    color: var(--text);
     border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 6px var(--shadow);
 }
 
-/* General actions/buttons */
 .actions {
     display: flex;
     justify-content: space-between;
@@ -65,18 +126,83 @@ main {
 
 button {
     padding: 10px 15px;
-    background: #4a90e2;
+    background: var(--primary);
     border: none;
     border-radius: 5px;
-    color: white;
+    color: var(--header-text);
     cursor: pointer;
 }
 
 button:hover {
-    background: #3b76b9;
+    background: var(--primary-hover);
 }
 
-/* Responsive tweaks */
+/* ============================================================
+   THEME TOGGLE SWITCH
+   ============================================================ */
+#themeContainer {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.theme-icon {
+    font-size: 1.2rem;
+    transition: opacity 0.3s;
+}
+
+.theme-switch {
+    position: relative;
+    width: 50px;
+    height: 24px;
+    background: var(--card-border);
+    border-radius: 12px;
+    margin: 0 6px;
+    flex-shrink: 0;
+    transition: background 0.3s;
+}
+
+/* Use a real child element for the knob */
+.theme-switch .knob {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--primary);
+    transition: transform 0.3s, background 0.3s;
+}
+
+/* Dark mode */
+html[data-theme='dark'] .theme-switch .knob {
+    transform: translateX(26px);
+}
+
+html[data-theme='dark'] .theme-icon.sun {
+    opacity: 0.4;
+}
+html[data-theme='dark'] .theme-icon.moon {
+    opacity: 1;
+}
+html[data-theme='light'] .theme-icon.sun {
+    opacity: 1;
+}
+html[data-theme='light'] .theme-icon.moon {
+    opacity: 0.4;
+}
+
+#themeContainer:hover .theme-switch .knob {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
 @media (max-width: 600px) {
     header {
         padding: 20px;
@@ -89,5 +215,20 @@ button:hover {
     }
     header p {
         font-size: 0.9rem;
+    }
+    #themeContainer {
+        top: 12px;
+        right: 12px;
+    }
+    .theme-switch {
+        width: 40px;
+        height: 20px;
+    }
+    .theme-switch .knob {
+        width: 16px;
+        height: 16px;
+    }
+    .theme-icon {
+        font-size: 1rem;
     }
 }
