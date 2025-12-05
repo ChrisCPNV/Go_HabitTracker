@@ -20,6 +20,8 @@
 
 **Tâches réalisées :**  
 -  Fix le style du calendrier quand on survole le jour courant
+-  MCD et MLD version 0.2
+-  Mise à jour de la documentation quant à la situation finale du projet
 
 **Problèmes rencontrés / Solutions :**  
 -  Aucun
