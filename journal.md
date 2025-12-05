@@ -10,6 +10,27 @@
 
 ## Journal de travail
 
+### Session 9
+**Date :** 5.12.2025  
+**Durée :** 3 h  
+**Objectif :**  
+-  Finir la vue des heures (moins important)
+-  Finir la documentation
+-  Polir le visuel de l'application
+
+**Tâches réalisées :**  
+-  Fix le style du calendrier quand on survole le jour courant
+
+**Problèmes rencontrés / Solutions :**  
+-  Aucun
+
+**Prochaines étapes :**  
+-  Finir la vue des heures
+-  Finir la documentation
+-  Polir le visuel de l'application
+
+---
+
 ### Session 8
 **Date :** 2.12.2025  
 **Durée :** 3 h  
