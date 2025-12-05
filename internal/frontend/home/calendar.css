@@ -133,7 +133,7 @@
 
 /* Hover effect */
 .calendar-container .calendar-dates li:not(.inactive):hover {
-    background: rgba(255,255,255,0.08);
+    background: #7698be;
     box-shadow: 0 2px 4px var(--shadow);
 }
 
