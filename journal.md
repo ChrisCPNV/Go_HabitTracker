@@ -1,235 +1,257 @@
 # Journal de Travail – Projet GoHabit (Go)
 
 ## Informations générales
-- Projet : GoHabit
-- Durée totale prévue : 45 h
-- MVP : CRUD habitudes, complétions, frontend minimal, SQLite, Vue calendrier, tags, 
-- Extras : Statistiques simples, authentification. thème sombre
+- **Projet :** GoHabit  
+- **Durée totale prévue :** 45 h  
+- **MVP :** CRUD des habitudes, complétions, frontend minimal, SQLite, vue calendrier, tags  
+- **Extras :** Statistiques simples, authentification, thème sombre  
 
 ---
 
-## Journal de travail
+# Journal de travail
 
-### Session 9
-**Date :** 5.12.2025  
+## Session 9
+**Date :** 05.12.2025  
+**Durée :** 1 h  
+
+### Objectifs  
+- Finaliser la vue des heures (moins prioritaire)  
+- Finaliser la documentation  
+- Polir le visuel de l’application  
+
+### Tâches réalisées  
+- Correction du style du calendrier lors du survol du jour courant  
+- MCD et MLD version 0.2  
+- Mise à jour finale de la documentation  
+
+### Problèmes rencontrés  
+- Aucun  
+
+### Prochaines étapes  
+- Aucune  
+
+---
+
+## Session 8
+**Date :** 02.12.2025  
 **Durée :** 3 h  
-**Objectif :**  
--  Finir la vue des heures (moins important)
--  Finir la documentation
--  Polir le visuel de l'application
 
-**Tâches réalisées :**  
--  Fix le style du calendrier quand on survole le jour courant
--  MCD et MLD version 0.2
--  Mise à jour de la documentation quant à la situation finale du projet
+### Objectifs  
+- Ajouter un mode sombre  
+- Ajouter un footer  
 
-**Problèmes rencontrés / Solutions :**  
--  Aucun
+### Tâches réalisées  
+- Ajout du thème sombre + bouton de bascule  
+- Ajout d’un footer simple et cohérent  
+- Ajout d’une vue des heures de la journée sélectionnée  
 
-**Prochaines étapes :**  
--  Finir la vue des heures
--  Finir la documentation
--  Polir le visuel de l'application
+### Problèmes rencontrés  
+- Aucun  
 
----
-
-### Session 8
-**Date :** 2.12.2025  
-**Durée :** 3 h  
-**Objectif :**  
--  Ajouter un mode sombre
--  Ajouter un footer avec des informations importantes
-
-**Tâches réalisées :**  
--  Ajout d'un thème sombre
--  Ajout d'un bouton pour changer de thème
--  Ajout d'un pied de page simple et consistant
--  Ajout d'une vue des heures de la journée sélectionnée
-
-**Problèmes rencontrés / Solutions :**  
--  Aucun
-
-**Prochaines étapes :**  
--  Finir la vue des heures
--  Finir la documentation
--  Polir le visuel de l'application
+### Prochaines étapes  
+- Finaliser la vue des heures  
+- Finaliser la documentation  
+- Polir le visuel global  
 
 ---
 
-### Session 7
-**Date :** 1.12.2025  
+## Session 7
+**Date :** 01.12.2025  
 **Durée :** 2 h  
-**Objectif :**  
--  Fixer le calendrier
--  Faire en sorte que l'utilisateur puisse modifier les tâches
 
-**Tâches réalisées :**  
--  Le calendrier est fixer, le problème venait du CSS qui aggrandissait légérement la case d'une date si celle-ci contenait une tâche
--  L'utilisateur peut modifier les tâches en double-cliquant sur la dîte tâche, sur le calendrier et l page dédiée aux tâches
--  Avancement sur la documentation
+### Objectifs  
+- Fixer le calendrier  
+- Permettre la modification des tâches  
 
-**Problèmes rencontrés / Solutions :**  
--  Aucun
+### Tâches réalisées  
+- Correction du bug du calendrier (lié à un style CSS)  
+- Modification des tâches par double-clic (calendrier + page des tâches)  
+- Avancement de la documentation  
 
-**Prochaines étapes :**  
--  Ajouter un mode sombre
--  Ajouter un footer avec des informations importantes
+### Problèmes rencontrés  
+- Aucun  
+
+### Prochaines étapes  
+- Ajouter un mode sombre  
+- Ajouter un footer  
 
 ---
 
-### Session 6
+## Session 6
 **Date :** 26.11.2025  
 **Durée :** 3 h  
-**Objectif :**  
--  Trier les tags par couleurs
--  (Amélioration mineures de l'interface)
--  Amélioration du système de completion des tâches
--  Pouvoir voir si des tâches n'ont pas été complétées avant leurs dates limite
 
-**Tâches réalisées :**  
--  L'utilisateur peut indiquer une couleur pour un tag
--  Les tags ont des couleurs attribuées
--  Le noms des tags s'adaptent si la couleur est plus sombre ou claire afin de pouvoir les lires
--  Si la tâche n'est pas complété après sa date limite, la date est mise en évidence sur la page des tâches
--  Ajout d'un filtre permettant de filter les tâches par tags
+### Objectifs  
+- Trier les tags par couleur  
+- Améliorer l’interface  
+- Améliorer la complétion des tâches  
+- Mettre en évidence les tâches en retard  
 
-**Problèmes rencontrés / Solutions :**  
--  Durant certains changements de l'affichage du calendrier, je me suis rendu compte qu'un jour était sauté, ce qui décale tout. Pas encore fixer.
+### Tâches réalisées  
+- Attribution d’une couleur à chaque tag  
+- Adaptation automatique de la couleur du texte selon la luminosité  
+- Mise en évidence des tâches en retard  
+- Ajout d’un filtre par tag  
 
-**Prochaines étapes :**  
--  Fixer le calendrier
--  Faire en sorte que l'utilisateur puisse modifier les tâches
+### Problèmes rencontrés  
+- Décalage d’un jour dans le calendrier lors de certains changements de mois  
+
+### Prochaines étapes  
+- Corriger le calendrier  
+- Permettre la modification des tâches  
 
 ---
 
-### Session 5
+## Session 5
 **Date :** 25.11.2025  
 **Durée :** 3.75 h  
-**Objectif :**  
-- Faire en sortes que l'utilisateur puisse créer des tags
-- Améliorer l'interface
 
-**Tâches réalisées :**  
--  L'utilisateur peut gérer les tags, les créer et les supprimer
--  Les 3 pages sont créées et liées (tasks, tags, home)
--  Il y a une vue sous forme de calendrier
--  Mise à jour du README
--  Mise à jour de la documentation
+### Objectifs  
+- Permettre la création de tags  
+- Améliorer l’interface  
 
-**Problèmes rencontrés / Solutions :**  
--  Je n'arrive pas à reproduire une mise en page similaire à celle des tâches. (le navigateur gardait l'ancien style en cache, il a fallu faire ctrl+shift+r)
+### Tâches réalisées  
+- Gestion complète des tags (création + suppression)  
+- Pages Home, Tasks et Tags créées et liées  
+- Ajout de la vue calendrier  
+- Mise à jour du README et de la documentation  
 
-**Prochaines étapes :**  
--  Trier les tags par couleurs
--  (Amélioration mineures de l'interface)
--  Amélioration du système de completion des tâches
--  Pouvoir voir si des tâches n'ont pas été complétées avant leurs dates limite
+### Problèmes rencontrés  
+- Cache navigateur conservant l’ancien CSS → résolu avec *Ctrl+Shift+R*  
+
+### Prochaines étapes  
+- Trier les tags par couleur  
+- Améliorer l’interface  
+- Améliorer la complétion  
+- Indiquer les tâches non complétées à temps  
 
 ---
 
-### Session 4
+## Session 4
 **Date :** 24.11.2025  
 **Durée :** 2.5 h  
-**Objectif :**  
-- Fixer le problème de la dernière session
-- Améliorer l'interface
 
-**Tâches réalisées :**  
--  Problème de construction de l'exécutable régler en clonant le projet ailleurs
--  La date de rendu de la tâche s'affiche correctement
--  L'utilisateur peut rajouter des tâches depuis l'application
--  Barre de navigation séparée de la page principale pour la réutiliser
--  Documentation améliorée
--  L'utilisateur peut marquer une tâche comme étant complétée
--  Le bouton pour afficher les tâches déjà complétée fonctionne
+### Objectifs  
+- Résoudre le problème de build  
+- Améliorer l’interface  
 
-**Problèmes rencontrés / Solutions :**  
--  Aucun problèmes
+### Tâches réalisées  
+- Résolution du problème de compilation en clonant le projet ailleurs  
+- Affichage correct des dates limites  
+- Ajout de la création de tâches depuis l’interface  
+- Séparation de la navbar en fichier externe  
+- Amélioration de la documentation  
+- Marquage des tâches comme complétées  
+- Ajout d’un bouton pour afficher les tâches complétées  
 
-**Prochaines étapes :**  
--  L'utilisateur peut créer des tags
--  Améliorer l'interface
+### Problèmes rencontrés  
+- Aucun  
+
+### Prochaines étapes  
+- Permettre la gestion des tags  
+- Améliorer l’interface  
 
 ---
 
-### Session 3
+## Session 3
 **Date :** 21.11.2025  
 **Durée :** 2.5 h  
-**Objectif :**  
-- Finir les routes
-- Commencer l'interface
 
-**Tâches réalisées :**  
--  Tâches liées avec les tags
--  Interface HTML créée
--  Pge HTML liée avec JS
+### Objectifs  
+- Finaliser les routes  
+- Commencer l’interface  
 
-**Problèmes rencontrés / Solutions :**  
--  Problème pour build l'éxecutable Go. Aucune solution trouvée
+### Tâches réalisées  
+- Liaison des tâches avec les tags  
+- Création de l’interface HTML  
+- Liaison HTML ↔ JavaScript  
 
-**Prochaines étapes :**  
--  Régler le problème avec l'éxecutable
--  Améliorer l'interface
+### Problèmes rencontrés  
+- Impossible de build l’exécutable (non résolu à cette étape)  
+
+### Prochaines étapes  
+- Résoudre le problème de build  
+- Améliorer l’interface  
 
 ---
 
-### Session 2
-**Date :** 18.11.2025 
+## Session 2
+**Date :** 18.11.2025  
 **Durée :** 5 h  
-**Objectif :**  
-- Création de la base de donnée
 
-**Tâches réalisées :**  
--  Création du MCD
--  Installation de MySQL Workbench
--  Création du MLD
--  Création du script de création des tables
--  Implémentation de la base de données avec SQLite en Go
--  Implémentation des routes pour les tâches et les tags
--  Serveur fonctionnel avec CRUD
--  Amélioration du README
--  Remplissage de la documentation
+### Objectifs  
+- Créer la base de données  
 
-**Problèmes rencontrés / Solutions :**  
--  Le serveur se lancait mais s'arrêtais aussitôt. J'ai changé le driver sqlite pour un autre driver purement Go pour éviter d'avoir des problème ave le C.
+### Tâches réalisées  
+- Création du MCD et MLD  
+- Installation de MySQL Workbench  
+- Création du script SQL  
+- Implémentation SQLite en Go  
+- Implémentation des routes CRUD  
+- Serveur fonctionnel  
+- Mise à jour du README  
+- Avancement de la documentation  
 
-**Prochaines étapes :**  
-- Tester les routes 
--  Créer une légère interface afin de tester les fonctionnalités (Peut-être faire une maquette)
--  Continuer la documentation 
+### Problèmes rencontrés  
+- Le serveur s’arrêtait instantanément → résolu en changeant de driver SQLite  
+
+### Prochaines étapes  
+- Tester les routes  
+- Créer une première interface  
+- Continuer la documentation  
 
 ---
 
-### Session 1
-**Date :** 17.11.2025
+## Session 1
+**Date :** 17.11.2025  
 **Durée :** 2 h  
-**Objectif :**  
-- Mettre le projet en place avec tout les documents nécessaire et planifier
 
-**Tâches réalisées :**  
--  Création du journal de travail
--  Création de la documentation principale
--  Mise en place d'un plan de travail sur GitHub
--  Installation de Git Bash
--  Mise en place de l'environnement de travail
+### Objectifs  
+- Mise en place du projet et de la planification  
 
-**Problèmes rencontrés / Solutions :**  
--  Aucun problèmes
+### Tâches réalisées  
+- Création du journal  
+- Création de la documentation principale  
+- Mise en place du plan de travail GitHub  
+- Installation de Git Bash  
+- Configuration de l’environnement de travail  
 
-**Prochaines étapes :**  
--  Utiliser Go pour la première fois
--  Mettre le projet en place 
+### Problèmes rencontrés  
+- Aucun  
 
-## Bilan final
-**Durée totale effectuée :** 23.75 h  
-**Fonctionnalités réalisées :**  
--  
--  
+### Prochaines étapes  
+- Commencer le développement Go  
+- Initialiser le projet  
 
-**Blocages rencontrés :**  
--  
--  
+---
 
-**Améliorations possibles / next steps :**  
--  
--  
+# Bilan final
+
+**Durée totale effectuée :** **24.75 h**
+
+### Fonctionnalités réalisées  
+- CRUD complet des tâches  
+- Gestion des tags (création, suppression, couleurs)  
+- Mode sombre + bascule  
+- Vue calendrier fonctionnelle  
+- Affichage des tâches du jour  
+- Édition des tâches via double-clic  
+- Surlignage des tâches en retard  
+- Pages Home, Tasks, Tags  
+- Footer, navbar responsive  
+- BDD SQLite (schéma final)  
+- Documentation complète et README finalisé  
+
+### Blocages rencontrés  
+- Décalages dans le calendrier → corrigé  
+- Problèmes de build → résolus  
+- Cache CSS du navigateur  
+
+### Améliorations possibles  
+- Authentification  
+- Statistiques  
+- Tâches récurrentes  
+- Notifications  
+- Migrations DB  
+- Tests plus poussés
+- Vue des heures
