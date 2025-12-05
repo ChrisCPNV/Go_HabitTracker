@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Go Habit Tracker</title>
+    <link rel="stylesheet" href="/static/global.css" />
+    <link rel="stylesheet" href="/static/tasks/tasks.css" />
+    <script defer src="/static/tasks/tasks.js"></script>
+    <script defer src="/static/navbar/navbar.js"></script>
+    <script defer src="/static/footer/footer.js"></script>
+</head>
+<body>
+    <div id="headerContainer"></div>
+    <main>
+        <h2>Your Habits / Tasks</h2>
+
+        <div class="filters">
+            <label>
+                Filter by tag:
+                <select id="tagFilter">
+                    <option value="">All Tags</option>
+                </select>
+            </label>
+        
+            <label>
+                Show completed:
+                <input type="checkbox" id="completedFilter">
+            </label>
+        </div>
+
+        <ul id="taskList"></ul>
+
+        <div class="actions">
+            <button id="addHabitBtn">Add Tasks</button>
+        </div>
+        
+        <!-- Add Habit Modal -->
+        <div id="addHabitModal" class="modal">
+            <div class="modal-content">
+                <span id="closeModal" class="close">&times;</span>
+                <h2>Add New Task</h2>
+                <form id="addHabitForm">
+                    <label>
+                        Name:<br>
+                        <input type="text" name="name" required />
+                    </label><br><br>
+                    <label>
+                        Description:<br>
+                        <textarea name="description"></textarea>
+                    </label><br><br>
+                    <label>
+                        Tag:<br>
+                        <select name="tag_id" id="tagSelect">
+                            <option value="">--Select a Tag--</option>
+                        </select>
+                    </label><br><br>
+                    <label>
+                        Due Date:<br>
+                        <input type="date" name="due_date" />
+                    </label><br><br>
+                    <button type="submit">Add Task</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    <div id="footerContainer"></div>
+</body>
+</html>

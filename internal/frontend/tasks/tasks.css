@@ -1,0 +1,119 @@
+/* ============================================================
+   TASKS LIST
+   ============================================================ */
+
+.task-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.task-item {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    margin-bottom: 12px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column; 
+    gap: 6px;             
+    transition: background 0.2s, box-shadow 0.2s;
+    color: var(--text);
+}
+
+.task-item:hover {
+    background: rgba(0,0,0,0.05);
+    box-shadow: 0 2px 6px var(--shadow);
+}
+
+.task-name {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--text);
+}
+
+/* Task tag label at the top of task item */
+.task-tag {
+    align-self: flex-start;
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    white-space: nowrap;
+    color: var(--tag-text, #fff);
+    background-color: var(--tag-bg, #007bff);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
+}
+
+/* Buttons */
+.task-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 6px; 
+}
+
+.edit-task-btn,
+.delete-task-btn {
+    padding: 6px 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+.edit-task-btn {
+    background: var(--primary);
+}
+
+.edit-task-btn:hover {
+    background: var(--primary-hover);
+}
+
+.delete-task-btn {
+    background: #ff4d4d;
+}
+
+.delete-task-btn:hover {
+    background: #c74f4f;
+}
+
+/* Modal shared with tags */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: var(--card-bg);
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 450px;
+    box-shadow: 0 2px 10px var(--shadow);
+    position: relative;
+    border: 1px solid var(--card-border);
+    color: var(--text);
+}
+
+.close {
+    color: var(--text);
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    opacity: 0.7;
+}
