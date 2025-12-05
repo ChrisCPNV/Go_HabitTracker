@@ -140,78 +140,78 @@ function showTasksForDay(dateStr) {
 }
 
 // ---------------- Day View ----------------
-function generateDayView(dateStr = null, hoursBefore = 3, hoursAfter = 3) {
-    const dayView = document.getElementById("dayView");
-    const dayViewTitle = document.getElementById("dayViewTitle");
-
-    // Default to today
-    const date = dateStr ? new Date(dateStr) : new Date();
-    const displayDate = date.toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric' });
-
-    // Update title
-    dayViewTitle.textContent = displayDate;
-
-    // Clear previous content
-    dayView.innerHTML = "";
-    dayView.appendChild(dayViewTitle);
-
-    // Determine current hour
-    const now = new Date();
-    const currentHour = date.toDateString() === now.toDateString() ? now.getHours() : 12; // default to midday for other days
-
-    // Compute hour range
-    const startHour = Math.max(0, currentHour - hoursBefore);
-    const endHour = Math.min(23, currentHour + hoursAfter);
-
-    // Get tasks for the day, grouped by hour
-    const normalizedDate = normalizeDate(date.toISOString());
-    const dayTasks = tasksByDate[normalizedDate] || [];
-    const tasksByHour = {};
-    dayTasks.forEach(t => {
-        if (!t.due_time) return;
-        const hour = parseInt(t.due_time.split(":")[0], 10);
-        if (!tasksByHour[hour]) tasksByHour[hour] = [];
-        tasksByHour[hour].push(t.name);
-    });
-
-    let currentHourElement = null;
-
-    // Generate only the selected range of hours
-    for (let h = startHour; h <= endHour; h++) {
-        const hourDiv = document.createElement("div");
-        hourDiv.className = "hour";
-
-        const timeSpan = document.createElement("span");
-        timeSpan.className = "time";
-        timeSpan.textContent = `${String(h).padStart(2, "0")}:00`;
-
-        const eventSpan = document.createElement("span");
-        eventSpan.className = "event";
-        eventSpan.textContent = tasksByHour[h] ? tasksByHour[h].join(", ") : "";
-
-        // Highlight current hour
-        if (h === now.getHours() && date.toDateString() === now.toDateString()) {
-            hourDiv.style.background = "rgba(74,144,226,0.2)";
-            hourDiv.style.fontWeight = "bold";
-            currentHourElement = hourDiv;
-        }
-
-        hourDiv.appendChild(timeSpan);
-        hourDiv.appendChild(eventSpan);
-        dayView.appendChild(hourDiv);
-    }
-
-    // Smooth scroll so current hour is visible in the center
-    if (currentHourElement) {
-        const containerHeight = dayView.clientHeight;
-        const hourTop = currentHourElement.offsetTop;
-        const hourHeight = currentHourElement.offsetHeight;
-        dayView.scrollTo({
-            top: hourTop - containerHeight / 2 + hourHeight / 2,
-            behavior: "smooth"
-        });
-    }
-}
+// function generateDayView(dateStr = null, hoursBefore = 3, hoursAfter = 3) {
+//     const dayView = document.getElementById("dayView");
+//     const dayViewTitle = document.getElementById("dayViewTitle");
+// 
+//     // Default to today
+//     const date = dateStr ? new Date(dateStr) : new Date();
+//     const displayDate = date.toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric' });
+// 
+//     // Update title
+//     dayViewTitle.textContent = displayDate;
+// 
+//     // Clear previous content
+//     dayView.innerHTML = "";
+//     dayView.appendChild(dayViewTitle);
+// 
+//     // Determine current hour
+//     const now = new Date();
+//     const currentHour = date.toDateString() === now.toDateString() ? now.getHours() : 12; // default to midday for other days
+// 
+//     // Compute hour range
+//     const startHour = Math.max(0, currentHour - hoursBefore);
+//     const endHour = Math.min(23, currentHour + hoursAfter);
+// 
+//     // Get tasks for the day, grouped by hour
+//     const normalizedDate = normalizeDate(date.toISOString());
+//     const dayTasks = tasksByDate[normalizedDate] || [];
+//     const tasksByHour = {};
+//     dayTasks.forEach(t => {
+//         if (!t.due_time) return;
+//         const hour = parseInt(t.due_time.split(":")[0], 10);
+//         if (!tasksByHour[hour]) tasksByHour[hour] = [];
+//         tasksByHour[hour].push(t.name);
+//     });
+// 
+//     let currentHourElement = null;
+// 
+//     // Generate only the selected range of hours
+//     for (let h = startHour; h <= endHour; h++) {
+//         const hourDiv = document.createElement("div");
+//         hourDiv.className = "hour";
+// 
+//         const timeSpan = document.createElement("span");
+//         timeSpan.className = "time";
+//         timeSpan.textContent = `${String(h).padStart(2, "0")}:00`;
+// 
+//         const eventSpan = document.createElement("span");
+//         eventSpan.className = "event";
+//         eventSpan.textContent = tasksByHour[h] ? tasksByHour[h].join(", ") : "";
+// 
+//         // Highlight current hour
+//         if (h === now.getHours() && date.toDateString() === now.toDateString()) {
+//             hourDiv.style.background = "rgba(74,144,226,0.2)";
+//             hourDiv.style.fontWeight = "bold";
+//             currentHourElement = hourDiv;
+//         }
+// 
+//         hourDiv.appendChild(timeSpan);
+//         hourDiv.appendChild(eventSpan);
+//         dayView.appendChild(hourDiv);
+//     }
+// 
+//     // Smooth scroll so current hour is visible in the center
+//     if (currentHourElement) {
+//         const containerHeight = dayView.clientHeight;
+//         const hourTop = currentHourElement.offsetTop;
+//         const hourHeight = currentHourElement.offsetHeight;
+//         dayView.scrollTo({
+//             top: hourTop - containerHeight / 2 + hourHeight / 2,
+//             behavior: "smooth"
+//         });
+//     }
+// }
 // ---------------- Edit modal ----------------
 async function loadEditModalHTML() {
     const resp = await fetch("/static/modals/editTaskModal.html");
@@ -327,5 +327,5 @@ document.addEventListener("DOMContentLoaded", async () => {
     setupEditModal();
     await loadTasks();
     renderCalendar();
-    generateDayView(); // Show today by default
+    // generateDayView();
 });
